@@ -1,0 +1,10 @@
+.btn {
+  min-height: 3rem;
+  border: 1px solid silver;
+  background: none; }
+
+.btn--fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-overflow: ellipsis; }
