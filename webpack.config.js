@@ -22,9 +22,7 @@ module.exports = {
                 warnings: true
             }
         }),
-        new CopyWebpackPlugin([
-            { from: 'index.html', to: path.join(__dirname, 'build/index.html') }
-            ],
+        new CopyWebpackPlugin([{ from: 'index.html', to: path.join(__dirname, 'build/index.html') }],
             { copyUnmodified: true })
     ],
     module: {
@@ -43,7 +41,7 @@ module.exports = {
         },
         {
             test: /\.scss$/,
-            use: ['style-loader','css-loader','postcss-loader','sass-loader']
+            use: ['style-loader','css-loader','sass-loader']
             }
         ]
     },
@@ -53,6 +51,12 @@ module.exports = {
             'node_modules',
             path.resolve(__dirname, './node_modules'),
             path.resolve(__dirname, './node_modules/foundation-sites/scss')
-        ]
+        ],
+        alias: {
+            'scss': path.resolve(__dirname, 'src/scss/'),
+            'components': path.resolve(__dirname, 'src/components/'),
+            'actions': path.resolve(__dirname, 'src/actions/'),
+            'reducers': path.resolve(__dirname, 'src/reducers/')
+        }
     }
 };
