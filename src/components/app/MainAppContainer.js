@@ -5,7 +5,7 @@ import {
     loadAppData
 } from 'actions/appActions';
 
-import { strokeAdded } from 'actions/geoActions';
+import { strokeAdded } from 'actions/gameActions';
 
 import AppComponent from './AppComponent';
 
