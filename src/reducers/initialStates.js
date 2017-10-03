@@ -11,10 +11,7 @@ const gameHolesData = [{
     strokeIndex: 9,
     teeLocation: undefined,
     holeLocation: undefined,
-    strokes: [{
-        longitude: 51.92703795906442,
-        latitude: 4.482954 
-    }]
+    strokes: []
 }];
 
 const gamesData = [{
