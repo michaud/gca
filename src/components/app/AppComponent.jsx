@@ -27,6 +27,7 @@ class AppComponent extends Component {
                 { clubs.map((club, idx) => <li key={ idx }><button onClick={ strokeAdded }>{ club.name }</button></li>) }
             </ol>
             <div>Holed</div>
+            <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes }/>
             <div>
                 <div>score</div>
                 <ol>
@@ -36,7 +37,6 @@ class AppComponent extends Component {
                     })}
                 </ol>
             </div>
-            <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes }/>
         </div>;
     }
 }
