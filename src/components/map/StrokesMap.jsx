@@ -14,15 +14,6 @@ const StrokesMap = compose(
         <GoogleMap
             defaultZoom={15}
             defaultCenter={{ lat: 51.9267587, lng: 4.4833616 }}>
-            <Circle key={ 100000 } options={{
-                fillColor: `#ffff00`,
-                fillOpacity: 1,
-                strokeWeight: 5,
-                strokeColor: 'green',
-                clickable: false,
-                editable: false,
-                zIndex: 1
-            }} radius={1} center={{ lat: 51.9267587, lng: 4.4833616 }} />
             {props.isMarkerShown && props.strokes.map((stroke, idx) => <Circle key={ idx } options={{
                 fillColor: `#ffff00`,
                 fillOpacity: 1,
