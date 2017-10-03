@@ -3,9 +3,11 @@
 }
 
 .game-nav__btn {
-    flex: 1;
+
+    min-height: 4rem;
+    width: 4rem;
 }
 
 .game-nav__hole {
-    flex: 3;
+    flex: 1;
 }
