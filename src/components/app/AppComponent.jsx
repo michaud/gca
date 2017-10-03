@@ -36,7 +36,7 @@ class AppComponent extends Component {
                     })}
                 </ol>
             </div>
-            <StrokesMap isMarkerShown />
+            <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes }/>
         </div>;
     }
 }
