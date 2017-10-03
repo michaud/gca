@@ -4,13 +4,15 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import 'scss/_style.scss';
 
+import StrokesMap from './../map/StrokesMap';
+
 injectTapEventPlugin();
 
 class AppComponent extends Component {
 
     render () {
 
-        const { clubs, strokeAdded } = this.props;
+        const { clubs, gameHoles, strokeAdded } = this.props;
 
         return <div>
             <div>game
@@ -25,7 +27,16 @@ class AppComponent extends Component {
                 { clubs.map((club, idx) => <li key={ idx }><button onClick={ strokeAdded }>{ club.name }</button></li>) }
             </ol>
             <div>Holed</div>
-            <div>score</div>
+            <div>
+                <div>score</div>
+                <ol>
+                    { gameHoles[0].strokes.map((stroke, idx) => {
+
+                        return <li key={ idx }>{ stroke.longitude} { stroke.latitude }</li>
+                    })}
+                </ol>
+            </div>
+            <StrokesMap isMarkerShown />
         </div>;
     }
 }

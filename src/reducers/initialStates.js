@@ -10,7 +10,8 @@ const gameHolesData = [{
     par: 4,
     strokeIndex: 9,
     teeLocation: undefined,
-    holeLocation: undefined
+    holeLocation: undefined,
+    strokes: []
 }];
 
 const gamesData = [{

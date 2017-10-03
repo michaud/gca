@@ -10,9 +10,10 @@ import { strokeAdded } from 'actions/gameActions';
 import AppComponent from './AppComponent';
 
 const mapStateToProps = (state) => {
-    const { clubs } = state;
+    const { clubs, gameHoles } = state;
     return {
-        clubs
+        clubs,
+        gameHoles
     };
 };
 
