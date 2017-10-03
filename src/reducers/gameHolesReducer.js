@@ -1,5 +1,6 @@
 import {
-    INIT_APP
+    INIT_APP,
+    SAVE_STROKE_LOCATION_DATA
 } from './../actions/actionTypes';
 
 import { INITIAL_GAME_HOLES_STATE } from './initialStates';

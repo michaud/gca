@@ -41,7 +41,7 @@ const bagData = {
 };
 
 const clubData = [{
-    name: "putter",
+    name: "puttter",
     brand: "ping"
 },
 {
