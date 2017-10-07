@@ -1,8 +1,8 @@
-const coursesData = {
+const coursesData = [{
     name: "coursename",
     holes: [],
     slope: undefined
-};
+}];
 
 const gameHolesData = [{
     id: 0,
@@ -168,7 +168,7 @@ const gameHolesData = [{
 }];
 
 const gamesData = [{
-    name: undefined,
+    name: "gamename",
     gameDate: undefined,
     bag: bagData,
     playingHandicap: undefined,
