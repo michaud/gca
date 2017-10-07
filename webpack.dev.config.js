@@ -56,12 +56,6 @@ module.exports = {
             path.resolve(__dirname, './node_modules/foundation-sites/scss'),
             path.resolve(__dirname, '/scss'),
             
-        ],
-        alias: {
-            'scss': path.resolve(__dirname, 'src/scss/'),
-            'components': path.resolve(__dirname, 'src/components/'),
-            'actions': path.resolve(__dirname, 'src/actions/'),
-            'reducers': path.resolve(__dirname, 'src/reducers/')
-        }
+        ]
     }
 };

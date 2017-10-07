@@ -1,0 +1,63 @@
+.f-fieldset {
+
+    border: none;
+    padding: 1rem;
+}
+
+.f-legend {
+
+    display: block;
+}
+
+.f-label {
+
+    display: block;
+    white-space: nowrap;
+}
+
+.f-input {
+
+    display: inline-block;
+    width: 70%;
+    padding: .5rem;
+    font-size: 16px;
+}
+
+.f-label-text {
+
+    display: inline-block;
+    width: 30%;
+    padding-right: 1rem; 
+}
+
+.f-edit-hole {
+
+    display: flex;
+    margin: 1rem 0;
+
+    .label-text {
+
+        flex: 4;
+        padding: 1.4rem 0;
+    }
+}
+
+.f-edit-hole-input {
+
+    display: flex;        
+    flex: 4;
+
+    select {
+
+        font-size: 1rem;
+        margin-right: 1rem;
+        padding-left: 1rem;
+        padding-right: .25rem;
+    }
+}
+
+.f-btn-add-hole {
+    flex: 1;
+    min-height: 4rem;
+    max-width: 4rem;
+}

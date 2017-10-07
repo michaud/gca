@@ -1,4 +1,4 @@
-import { saveStrokeLocation } from 'actions/geoActions';
+import { saveStrokeLocation } from './geoActions';
 
 export const strokeAdded = (club) => {
 
