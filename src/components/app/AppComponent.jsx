@@ -16,10 +16,15 @@ class AppComponent extends Component {
     }
 
     updatePath = (position) => {
-        console.log(position);
+
+        let newPath = [];
+
+        if(this.state.path.length > 200) {
+            newPath = this.state.path.slice(1, this.state.path.length - 1)
+        }
 
         this.setState({
-            path: [...this.state.path, position.coords]
+            path: [...newPath, position.coords]
         })
     }
 
