@@ -13,20 +13,23 @@ class AppComponent extends Component {
 
     state = {
         path: [],
-        mailData
+        mailData: 'mailto:michaud@venant.nl?body='
     }
 
     updatePath = (position) => {
 
-        let newPath = [];
+        let path = [];
 
         if(this.state.path.length > 200) {
-            newPath = this.state.path.slice(1, this.state.path.length - 1)
+            path = this.state.path.slice(1, this.state.path.length - 1)
         }
 
+        const pathData = [...path, position.coords];
+        const mailData = this.getGeoMail(pathData);
+
         this.setState({
-            path: [...newPath, position.coords],
-            mailData: this.getGeoMail(newPath)
+            path: pathData,
+            mailData
         })
     }
 
@@ -38,7 +41,7 @@ class AppComponent extends Component {
     }
 
     getGeoMail = (data) => {
-        return JSON.stringify({ path: data  });
+        return `mailto:michaud@venant.nl?body=${ JSON.stringify({ path: data  }) }`;
     }
 
     render() {
