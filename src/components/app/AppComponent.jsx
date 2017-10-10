@@ -12,7 +12,8 @@ injectTapEventPlugin();
 class AppComponent extends Component {
 
     state = {
-        path: []
+        path: [],
+        mailData
     }
 
     updatePath = (position) => {
@@ -24,7 +25,8 @@ class AppComponent extends Component {
         }
 
         this.setState({
-            path: [...newPath, position.coords]
+            path: [...newPath, position.coords],
+            mailData: this.getGeoMail(newPath)
         })
     }
 
@@ -35,8 +37,8 @@ class AppComponent extends Component {
         this.whatcherId = navigator.geolocation.watchPosition(this.updatePath)
     }
 
-    getGeoMail = () => {
-        return JSON.stringify({ path: this.state.path });
+    getGeoMail = (data) => {
+        return JSON.stringify({ path: data  });
     }
 
     render() {
@@ -106,7 +108,7 @@ class AppComponent extends Component {
                     }) }
                 </ol>
             </div>
-            <a href="#" onClick={ this.getGeoMail } >mail</a>
+            <a href={ this.state.mailData }>mail</a>
         </div>;
     }
 }
