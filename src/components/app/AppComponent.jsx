@@ -35,6 +35,10 @@ class AppComponent extends Component {
         this.whatcherId = navigator.geolocation.watchPosition(this.updatePath)
     }
 
+    getGeoMail = () => {
+        return JSON.stringify({ path: this.state.path });
+    }
+
     render() {
 
         const {
@@ -46,12 +50,10 @@ class AppComponent extends Component {
         } = this.props;
 
         return <div>
+            <button className="btn--action panel--edit__btn wide">Course name</button>
             <div className="panel--edit collapsed">
-                <div className="panel--edit__content-container">
-                    <button className="btn--action panel--edit__btn wide">Course name</button>
-                </div>
                 <div className="panel--edit__content-container hidden">
-                    <div className="panel--edit__content collapsed">
+                    <div className="panel--edit__content">
                         <ol>
                             { courses.map((course, idx) => <li key={ idx }>{ course.name }</li>) }
                         </ol>
@@ -59,19 +61,21 @@ class AppComponent extends Component {
                     <AddCourseComponent/>
                 </div>
             </div>
+            <button className="btn--action panel--edit__btn wide">Game</button>
             <div className="panel--edit collapsed">
-                <div className="panel--edit__content-container">
-                    <button className="btn--action panel--edit__btn wide">Game</button>
-                </div>
                 <div className="panel--edit__content-container hidden">
-                    <div className="panel--edit__content collapsed">
+                    <div className="panel--edit__content">
                         <ol>
                             { games.map((game, idx) => <li key={ idx }>{ game.name }</li>) }
                         </ol>
                     </div>
-                </div>
-                <div className="panel--edit__content-container">
-                    <button className="btn--action panel--edit__btn wide">new game</button>
+                    <div className="panel--edit">
+                        <div className="panel--edit__content-container">
+                            <div className="panel--edit__content">
+                                <button className="btn--action panel--edit__btn wide">new game</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div>
@@ -102,6 +106,7 @@ class AppComponent extends Component {
                     }) }
                 </ol>
             </div>
+            <a href="#" onClick={ this.getGeoMail } >mail</a>
         </div>;
     }
 }
