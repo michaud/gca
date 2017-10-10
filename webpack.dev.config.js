@@ -5,7 +5,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     devServer: {
         stats: 'errors-only',
     },
