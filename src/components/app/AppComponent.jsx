@@ -13,7 +13,8 @@ class AppComponent extends Component {
 
     state = {
         path: [],
-        mailData: 'mailto:michaud@venant.nl?body='
+        mailData: 'mailto:michaud@venant.nl?body=',
+        mailStrokes: 'mailto:michaud@venant.nl?body='
     }
 
     updatePath = (position) => {
@@ -22,14 +23,17 @@ class AppComponent extends Component {
 
         if(this.state.path.length > 200) {
             path = this.state.path.slice(1, this.state.path.length - 1)
+        } else {
+            path = [...this.state.path];
         }
 
         const pathData = [...path, position.coords];
         const mailData = this.getGeoMail(pathData);
-
+        const mailStrokes = this.getGeoStrokeMail(this.props.gameHoles[0].strokes);
         this.setState({
             path: pathData,
-            mailData
+            mailData,
+            mailStrokes
         })
     }
 
@@ -42,6 +46,10 @@ class AppComponent extends Component {
 
     getGeoMail = (data) => {
         return `mailto:michaud@venant.nl?body=${ JSON.stringify({ path: data  }) }`;
+    }
+
+    getGeoStrokeMail = (data) => {
+        return `mailto:michaud@venant.nl?body=${ JSON.stringify({ path: this.props.gameHoles[0].strokes}) }`;
     }
 
     render() {
@@ -100,7 +108,7 @@ class AppComponent extends Component {
                 </ol>
                 <div><button className="btn--action wide">Holed</button></div>
             </div>
-            {/* <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } /> */}
+            <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
             <StrokesMap isMarkerShown strokes={ this.state.path } />
             <div>
                 <div>score</div>
