@@ -119,7 +119,8 @@ class AppComponent extends Component {
                     }) }
                 </ol>
             </div>
-            <a href={ this.state.mailData }>mail</a>
+            <a href={ this.state.mailData }>mail data</a>
+            <a href={ this.state.mailStrokes }>mail strokes</a>
         </div>;
     }
 }
