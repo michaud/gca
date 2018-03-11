@@ -4,7 +4,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import './../../scss/_style.scss';
 
-import AddCourseContainer from './AddCourseContainer';
 import ClubListContainer from './ClubListContainer';
 import CourseNavigatorComponent from './CourseNavigatorComponent';
 import HoleNavigatorComponent from './HoleNavigatorComponent';
@@ -25,7 +24,7 @@ class AppComponent extends Component {
         let path = [];
 
         if(this.state.path.length > 200) {
-            path = this.state.path.slice(1, this.state.path.length - 1)
+            path = this.state.path.slice(1, this.state.path.length - 1);
         } else {
             path = [...this.state.path];
         }
@@ -37,51 +36,33 @@ class AppComponent extends Component {
             path: pathData,
             mailData,
             mailStrokes
-        })
+        });
     }
 
     watcherId = undefined;
 
     componentDidMount =() => {
 
-        this.whatcherId = navigator.geolocation.watchPosition(this.updatePath)
+        this.whatcherId = navigator.geolocation.watchPosition(this.updatePath);
     }
 
     getGeoMail = (data) => {
-        return `mailto:michaud@venant.nl?body=${ JSON.stringify({ path: data  }) }`;
+        return `mailto:michaud@venant.nl?body=${ JSON.stringify({ path: data }) }`;
     }
 
-    getGeoStrokeMail = (data) => {
+    getGeoStrokeMail = (data) => {// eslint-disable-line no-unused-vars
         return `mailto:michaud@venant.nl?body=${ JSON.stringify({ path: this.props.gameHoles[0].strokes}) }`;
     }
 
-    render() {
+    render () {
 
         const {
-            courses,
             games,
             gameHoles
         } = this.props;
 
         return <div>
             <CourseNavigatorComponent/>
-            <button className="btn--action panel--edit__btn wide">Game</button>
-            <div className="panel--edit collapsed">
-                <div className="panel--edit__content-container hidden">
-                    <div className="panel--edit__content">
-                        <ol>
-                            { games.map((game, idx) => <li key={ idx }>{ game.name }</li>) }
-                        </ol>
-                    </div>
-                    <div className="panel--edit">
-                        <div className="panel--edit__content-container">
-                            <div className="panel--edit__content">
-                                <button className="btn--action panel--edit__btn wide">new game</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <HoleNavigatorComponent holes={ gameHoles }/>
             <ClubListContainer/>
             <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
@@ -89,10 +70,7 @@ class AppComponent extends Component {
             <div>
                 <div>score</div>
                 <ol>
-                    { gameHoles[0].strokes.map((stroke, idx) => {
-
-                        return <li key={ idx }>{ stroke.longitude } { stroke.latitude }</li>
-                    }) }
+                { gameHoles[0].strokes.map((stroke, idx) => <li key={ idx }>{ stroke.longitude } { stroke.latitude }</li>) }
                 </ol>
             </div>
             <a href={ this.state.mailData }>mail data</a>

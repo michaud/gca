@@ -3,17 +3,16 @@ import { bindActionCreators } from 'redux';
 
 import { } from 'actions/gameActions';
 
-import CourseNavigatorComponent from './CourseNavigatorComponent';
+import GameNavigatorComponent from './GameNavigatorComponent';
 
 const mapStateToProps = (state) => {
 
-    const { courses } = state;
+    const { games } = state;
 
     return {
-        courses
+        games
     };
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-
-}, dispatch))(CourseNavigatorComponent);
+}, dispatch))(GameNavigatorComponent);
