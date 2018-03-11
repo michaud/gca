@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
     return {
         clubs
-    }
+    };
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({

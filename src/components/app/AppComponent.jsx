@@ -5,9 +5,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import './../../scss/_style.scss';
 
 import ClubListContainer from './ClubListContainer';
-import CourseNavigatorComponent from './CourseNavigatorComponent';
 import HoleNavigatorComponent from './HoleNavigatorComponent';
 import StrokesMap from './../map/StrokesMap';
+import CourseNavigatorContainer from './CourseNavigatorContainer';
 
 injectTapEventPlugin();
 
@@ -61,7 +61,7 @@ class AppComponent extends Component {
         } = this.props;
 
         return <div>
-            <CourseNavigatorComponent/>
+            <CourseNavigatorContainer/>
             <HoleNavigatorComponent holes={ gameHoles }/>
             <ClubListContainer/>
             <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
