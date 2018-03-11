@@ -1,7 +1,7 @@
 .panel--edit {
 
     height: 100vh;
-    display: table;
+
     width: 100%;
 
     &.collapsed {
@@ -12,12 +12,9 @@
 
 .panel--edit__btn {
 
-    display: table-row;
 }
 
 .panel--edit__content-container {
-
-    display: table-row;
 
     &.hidden {
 
@@ -27,7 +24,6 @@
 
 .panel--edit__content {
 
-    display: table-cell;
     height: 100%;
     vertical-align: top;
 

@@ -5,7 +5,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import './../../scss/_style.scss';
 
 import AddCourseContainer from './AddCourseContainer';
-
+import ClubListContainer from './ClubListContainer';
+import CourseNavigatorComponent from './CourseNavigatorComponent';
+import HoleNavigatorComponent from './HoleNavigatorComponent';
 import StrokesMap from './../map/StrokesMap';
 
 injectTapEventPlugin();
@@ -58,23 +60,11 @@ class AppComponent extends Component {
         const {
             courses,
             games,
-            clubs,
-            gameHoles,
-            strokeAdded
+            gameHoles
         } = this.props;
 
         return <div>
-            <button className="btn--action panel--edit__btn wide">Course name</button>
-            <div className="panel--edit collapsed">
-                <div className="panel--edit__content-container hidden">
-                    <div className="panel--edit__content">
-                        <ol>
-                            { courses.map((course, idx) => <li key={ idx }>{ course.name }</li>) }
-                        </ol>
-                    </div>
-                    <AddCourseContainer/>
-                </div>
-            </div>
+            <CourseNavigatorComponent/>
             <button className="btn--action panel--edit__btn wide">Game</button>
             <div className="panel--edit collapsed">
                 <div className="panel--edit__content-container hidden">
@@ -92,23 +82,8 @@ class AppComponent extends Component {
                     </div>
                 </div>
             </div>
-            <div>
-                <div className="game-nav">
-                    <button className="btn--action game-nav__btn">&lt;</button>
-                    <button className="btn--action game-nav__hole">
-                        <div>hole 1</div>
-                        <div> strokes: 2, points: 1</div>
-                    </button>
-                    <button className="btn--action game-nav__btn">&gt;</button>
-                </div>
-                <ol className="plain-list hole-list" style={{ display: 'none' }}>
-                    { gameHoles.map((hole, idx) => <li key={ idx }><button className="btn--action">{ hole.name }</button></li>) }
-                </ol>
-                <ol className="plain-list club-list">
-                    {clubs.map((club, idx) => <li key={ idx }><button className="btn--action wide" onClick={ strokeAdded }>{ club.name }</button></li>)}
-                </ol>
-                <div><button className="btn--action wide">Holed</button></div>
-            </div>
+            <HoleNavigatorComponent holes={ gameHoles }/>
+            <ClubListContainer/>
             <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
             <StrokesMap isMarkerShown strokes={ this.state.path } />
             <div>

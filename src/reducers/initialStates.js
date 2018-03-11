@@ -191,7 +191,7 @@ const gamesData = [{
 }];
 
 const bagData = {
-    clubs:clubData
+    clubs:[]
 };
 
 const clubData = [{

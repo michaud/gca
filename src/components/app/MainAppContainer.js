@@ -5,7 +5,6 @@ import {
     loadAppData
 } from './../../actions/appActions';
 
-import { strokeAdded } from './../../actions/gameActions';
 import { createCourse, saveCourse } from './../../actions/gameActions';
 
 import AppComponent from './AppComponent';
@@ -29,7 +28,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
     loadAppData,
-    strokeAdded,
     createCourse,
     saveCourse
 }, dispatch))(AppComponent);
