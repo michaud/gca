@@ -1,19 +1,7 @@
-export const createCourse = () => {
+export const createCourse = () => (dispatch, getState) => {
 
-    return (dispatch, getState) => {
+};
 
-    }
+export const saveCourse = () => (dispatch, getState) => {
 
-//     {
-//     name: "coursename",
-//     holes: [],
-//     slope: undefined
-// }
-}
-
-export const saveCourse = () => {
-
-    return (dispatch, getState) => {
-        
-    }
-}
+};

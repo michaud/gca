@@ -5,13 +5,17 @@ import {
 import { INITIAL_BAG_STATE } from './initialStates';
 
 export default function (state = INITIAL_BAG_STATE, action) {
+
     switch (action.type) {
-        case INIT_APP:
+
+        case INIT_APP: {
 
             return state;
+        }
 
-        default:
+        default: {
         
             return state;
+        }
     }
 }

@@ -54,8 +54,11 @@ module.exports = {
         modules: [
             'node_modules',
             path.resolve(__dirname, './node_modules/foundation-sites/scss'),
-            path.resolve(__dirname, '/scss'),
-            
-        ]
+            path.resolve(__dirname, '/scss')
+        ],
+        alias: {
+            components: path.resolve(__dirname, 'src/components/'),
+            actions: path.resolve(__dirname, 'src/actions/')
+        }
     }
 };

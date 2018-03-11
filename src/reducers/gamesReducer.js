@@ -8,12 +8,14 @@ export default function (state = INITIAL_GAMES_STATE, action) {
 
     switch (action.type) {
 
-        case INIT_APP:
+        case INIT_APP: {
 
             return state;
+        }
 
-        default:
+        default: {
         
             return state;
+        }
     }
 }

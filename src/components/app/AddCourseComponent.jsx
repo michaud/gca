@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
 import CourseEditComponent from './CourseEditComponent';
 
-class AddCourseComponent extends Component {
+export default class AddCourseComponent extends Component {
 
     state = {
         course: {
@@ -53,16 +50,3 @@ class AddCourseComponent extends Component {
         </div>;
     }
 }
-
-const mapStateToProps = (state) => {
-    
-    const {
-
-    } = state;
-
-    return {
-    };
-};
-    
-export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-}, dispatch))(AddCourseComponent);

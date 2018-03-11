@@ -5,14 +5,18 @@ import {
 import { INITIAL_COURSES_STATE } from './initialStates';
 
 export default function (state = INITIAL_COURSES_STATE, action) {
+
     switch (action.type) {
-        case INIT_APP:
+
+        case INIT_APP:{
 
             return state;
+        }
 
-        default:
+        default: {
         
             return state;
+        }
     }
 }
         

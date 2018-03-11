@@ -4,7 +4,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import './../../scss/_style.scss';
 
-import AddCourseComponent from './AddCoureComponent';
+import AddCourseContainer from './AddCourseContainer';
+
 import StrokesMap from './../map/StrokesMap';
 
 injectTapEventPlugin();
@@ -71,7 +72,7 @@ class AppComponent extends Component {
                             { courses.map((course, idx) => <li key={ idx }>{ course.name }</li>) }
                         </ol>
                     </div>
-                    <AddCourseComponent/>
+                    <AddCourseContainer/>
                 </div>
             </div>
             <button className="btn--action panel--edit__btn wide">Game</button>

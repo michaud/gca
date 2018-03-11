@@ -9,11 +9,12 @@ export default function (state = INITIAL_GAME_HOLES_STATE, action) {
 
     switch (action.type) {
 
-        case INIT_APP:
+        case INIT_APP: {
 
             return state;
+        }
     
-        case SAVE_STROKE_LOCATION_DATA:
+        case SAVE_STROKE_LOCATION_DATA: {
 
             const newState = state.map((item, index) => {
                 if (index !== 0) {
@@ -40,9 +41,11 @@ export default function (state = INITIAL_GAME_HOLES_STATE, action) {
             });
 
             return [...newState];
+        }
 
-        default:
+        default: {
         
             return state;
+        }
     }
-}
+};

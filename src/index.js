@@ -4,7 +4,6 @@ import MainAppContainer from './components/app/MainAppContainer';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 
-
 import './scss/_style.scss';
 
 import configureStore from './store/configureStore';

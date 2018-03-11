@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-class CourseEditComponent extends Component {
+export default class CourseEditComponent extends Component {
+
     render() {
+
         return <label className="f-edit-hole">
             <div className="f-edit-hole-input">
                 <select>
@@ -55,5 +57,3 @@ class CourseEditComponent extends Component {
         </label>;
     }
 }
-
-export default CourseEditComponent;
