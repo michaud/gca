@@ -20,6 +20,6 @@ const GameNavigatorComponent = ({ games }) => {
             </div>
         </div>
     </div>;
-}
+};
 
 export default GameNavigatorComponent;

@@ -57,7 +57,6 @@ class AppComponent extends Component {
     render () {
 
         const {
-            games,
             gameHoles
         } = this.props;
 
