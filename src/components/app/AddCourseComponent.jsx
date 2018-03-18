@@ -22,12 +22,11 @@ export default class AddCourseComponent extends Component {
         this.setState({course: newCourse});
     }
 
-    render() {
+    render () {
 
         return <div className="panel--edit">
             <div className="panel--edit__content-container">
                 <div className="panel--edit__content">
-                    <button className="btn--action panel--edit__btn wide">new course</button>
                     <div className="panel--edit">
                         <div className="panel--edit__content-container">
                             <div className="panel--edit__content">

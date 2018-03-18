@@ -14,7 +14,7 @@ export default function (state = INITIAL_BAG_STATE, action) {
         }
 
         default: {
-        
+
             return state;
         }
     }

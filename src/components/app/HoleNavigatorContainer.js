@@ -1,20 +1,18 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { strokeAdded } from 'actions/gameActions';
+import { } from 'actions/gameActions';
 
-import ClubListComponent from './ClubListComponent';
+import HoleNavigatorComponent from './HoleNavigatorComponent';
 
 const mapStateToProps = (state) => {
 
-    const { clubs } = state;
+    const { games } = state;
 
     return {
-        clubs
+        holes: []
     };
-    
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-    strokeAdded
-}, dispatch))(ClubListComponent);
+}, dispatch))(HoleNavigatorComponent);

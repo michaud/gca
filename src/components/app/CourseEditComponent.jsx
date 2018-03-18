@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class CourseEditComponent extends Component {
 
-    render() {
+    render () {
 
         return <label className="f-edit-hole">
             <div className="f-edit-hole-input">

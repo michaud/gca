@@ -1,8 +1,17 @@
-const coursesData = [{
+/* eslint-disable no-unused-vars */
+export const courseData = {
     name: 'coursename',
     holes: [],
     slope: undefined
-}];
+};
+
+export const clubData = {
+    name: undefined,
+    brand: undefined
+};
+
+const coursesData = [{ ...courseData },
+    { ...courseData }];
 
 const bagData = {
     clubs: []
@@ -187,14 +196,10 @@ const gamesData = [{
             exactHandicap: undefined
         }
     },
-    course: {
-        name: 'coursename',
-        holes: [],
-        slope: undefined
-    }
+    course: { ...courseData }
 }];
 
-const clubData = [{
+const clubsData = [{
     name: 'puttter',
     brand: 'ping'
 },
@@ -255,9 +260,10 @@ const appData = {
     currentGameId: undefined,
     currentHoleId: undefined
 };
+/* eslint-enable no-unused-vars */
 
 export const INITIAL_APP_STATE = appData;
-export const INITIAL_CLUBS_STATE = clubData;
+export const INITIAL_CLUBS_STATE = clubsData;
 export const INITIAL_GAME_HOLES_STATE = gameHolesData;
 export const INITIAL_GAMES_STATE = gamesData;
 export const INITIAL_COURSES_STATE = coursesData;

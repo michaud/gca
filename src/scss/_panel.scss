@@ -8,18 +8,14 @@
 
         height: auto;
     }
+
+    &.plain {
+        height: auto;
+    }
 }
 
 .panel--edit__btn {
 
-}
-
-.panel--edit__content-container {
-
-    &.hidden {
-
-        display: none;
-    }
 }
 
 .panel--edit__content {
