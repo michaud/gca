@@ -34,6 +34,7 @@
 
     display: flex;
     margin: 1rem 0;
+    min-height: 4rem;
 
     .label-text {
 
@@ -53,6 +54,26 @@
         margin-right: 1rem;
         padding-left: 1rem;
         padding-right: .25rem;
+    }
+}
+
+.f-input--length {
+    width: 4rem;
+    text-align: right;
+}
+
+.f-edit-hole__nr {
+
+    min-width: 2rem;
+    text-align: right;
+    padding-right: .5rem;
+
+    &:before {
+
+        content: "";
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
     }
 }
 

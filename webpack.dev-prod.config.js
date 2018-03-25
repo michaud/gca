@@ -26,7 +26,7 @@ module.exports = {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      compress:{
+      compress: {
         warnings: true
       }
     })
@@ -56,6 +56,13 @@ module.exports = {
     modulesDirectories: [
       'node_modules',
       path.resolve(__dirname, './node_modules')
-    ]
+    ],
+    alias: {
+      'scss': path.resolve(__dirname, 'src/scss/'),
+      'components': path.resolve(__dirname, 'src/components/'),
+      'actions': path.resolve(__dirname, 'src/actions/'),
+      'reducers': path.resolve(__dirname, 'src/reducers/'),
+      'selectors': path.resolve(__dirname, 'src/selectors/')
+    }
   }
 };

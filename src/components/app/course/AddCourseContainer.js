@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import AddCourseComponent from './AddCourseComponent';
+import { saveCourse } from 'actions/courseActionCreators';
+
+import AddCourseComponent from 'components/app/course/AddCourseComponent';
 
 const mapStateToProps = (state) => {
 
@@ -14,4 +16,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
+    saveCourse
 }, dispatch))(AddCourseComponent);

@@ -1,7 +1,6 @@
-export const createCourse = () => (dispatch, getState) => {
+import { ADD_COURSE } from 'actions/actionTypes';
 
-};
-
-export const saveCourse = () => (dispatch, getState) => {
-
-};
+export const addCourse = (course) => ({
+    type: ADD_COURSE,
+    course
+});

@@ -7,7 +7,7 @@ var autoprefixer = require('autoprefixer');
 module.exports = {
     devtool: 'eval-source-map',
     devServer: {
-        stats: 'errors-only',
+        stats: 'errors-only'
     },
 
     entry: ['babel-polyfill',
@@ -57,8 +57,11 @@ module.exports = {
             path.resolve(__dirname, '/scss')
         ],
         alias: {
-            components: path.resolve(__dirname, 'src/components/'),
-            actions: path.resolve(__dirname, 'src/actions/')
+            'scss': path.resolve(__dirname, 'src/scss/'),
+            'components': path.resolve(__dirname, 'src/components/'),
+            'actions': path.resolve(__dirname, 'src/actions/'),
+            'reducers': path.resolve(__dirname, 'src/reducers/'),
+            'selectors': path.resolve(__dirname, 'src/selectors/')
         }
     }
 };

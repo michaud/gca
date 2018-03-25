@@ -4,10 +4,10 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import './../../scss/_style.scss';
 
-import BagClubListContainer from './BagClubListContainer';
-import HoleNavigatorContainer from './HoleNavigatorContainer';
+import BagClubListContainer from 'components/app/BagClubListContainer';
+import HoleNavigatorContainer from 'components/app/HoleNavigatorContainer';
 import StrokesMap from './../map/StrokesMap';
-import CourseNavigatorContainer from './CourseNavigatorContainer';
+import CourseNavigatorContainer from 'components/app/course/CourseNavigatorContainer';
 
 injectTapEventPlugin();
 
@@ -57,14 +57,15 @@ class AppComponent extends Component {
     render () {
 
         const {
-            gameHoles
+            gameHoles,
+            showStartup
         } = this.props;
 
         return <div>
             <CourseNavigatorContainer/>
             <HoleNavigatorContainer/>
             <BagClubListContainer/>
-            <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
+            {/* <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
             <StrokesMap isMarkerShown strokes={ this.state.path } />
             <div>
                 <div>score</div>
@@ -73,7 +74,7 @@ class AppComponent extends Component {
                 </ol>
             </div>
             <a href={ this.state.mailData }>mail data</a>
-            <a href={ this.state.mailStrokes }>mail strokes</a>
+            <a href={ this.state.mailStrokes }>mail strokes</a> */}
         </div>;
     }
 }

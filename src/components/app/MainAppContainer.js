@@ -3,9 +3,11 @@ import { bindActionCreators } from 'redux';
 
 import {
     loadAppData
-} from './../../actions/appActions';
+} from 'actions/appActions';
 
-import { createCourse, saveCourse } from './../../actions/gameActions';
+import { createCourse, saveCourse } from 'actions/gameActions';
+
+import { showStartup } from 'selectors';
 
 import AppComponent from './AppComponent';
 
@@ -22,7 +24,8 @@ const mapStateToProps = (state) => {
         clubs,
         gameHoles,
         courses,
-        games
+        games,
+        showStartup: showStartup(state)
     };
 };
 

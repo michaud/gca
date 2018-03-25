@@ -10,8 +10,15 @@ export const clubData = {
     brand: undefined
 };
 
-const coursesData = [{ ...courseData },
-    { ...courseData }];
+export const holeData = {
+    holeNr: 0,
+    si: 1,
+    par: 3,
+    length: undefined
+};
+
+const coursesData = [/*{ ...courseData },
+{ ...courseData }*/];
 
 const bagData = {
     clubs: []

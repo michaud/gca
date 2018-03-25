@@ -13,7 +13,7 @@ export default function (state = INITIAL_GAME_HOLES_STATE, action) {
 
             return state;
         }
-    
+
         case SAVE_STROKE_LOCATION_DATA: {
 
             const newState = state.map((item, index) => {
@@ -22,13 +22,13 @@ export default function (state = INITIAL_GAME_HOLES_STATE, action) {
                 } else {
                     let newArray = item.strokes.slice();
                     const newStroke = {
-                        accuracy:action.geoData.accuracy,
-                        altitude:action.geoData,
-                        altitudeAccuracy:action.geoData,
-                        heading:action.geoData.altitudeAccuracy,
-                        latitude:action.geoData.latitude,
-                        longitude:action.geoData.longitude,
-                        speed:action.geoData.speed,
+                        accuracy: action.geoData.accuracy,
+                        altitude: action.geoData,
+                        altitudeAccuracy: action.geoData,
+                        heading: action.geoData.altitudeAccuracy,
+                        latitude: action.geoData.latitude,
+                        longitude: action.geoData.longitude,
+                        speed: action.geoData.speed,
                         name: 'plop'
                     };
 

@@ -56,7 +56,8 @@ module.exports = {
             'scss': path.resolve(__dirname, 'src/scss/'),
             'components': path.resolve(__dirname, 'src/components/'),
             'actions': path.resolve(__dirname, 'src/actions/'),
-            'reducers': path.resolve(__dirname, 'src/reducers/')
+            'reducers': path.resolve(__dirname, 'src/reducers/'),
+            'selectors': path.resolve(__dirname, 'src/selectors/')
         }
     }
 };
