@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
-import HoleEditComponent from './HoleEditComponent';
+import HoleEditComponent from 'components/hole/HoleEditComponent';
 
-import { holeData } from 'reducers/initialStates';
+import {
+    holeData,
+    courseData
+} from 'reducers/initialStates';
 
 export default class AddCourseComponent extends Component {
 
     state = {
-        name: '',
-        holes: []
+        ...courseData
     }
 
     courseNameChanged = (e) => {
@@ -21,13 +23,14 @@ export default class AddCourseComponent extends Component {
         this.setState((state) => {
 
             const holes = [...state.holes, hole];
-            return { holes }
+            return { holes };
         });
     }
 
-    addCourseButtonClicked = (e) => {
+    addCourseButtonClicked = () => {
 
         this.props.saveCourse(this.state);
+        this.setState({ ...courseData });
     }
 
     getNewHole = () => {
@@ -50,6 +53,7 @@ export default class AddCourseComponent extends Component {
                                             className="f-input"
                                             type="text"
                                             onChange={ this.courseNameChanged }
+                                            placeholder="course name"
                                             value={ this.state.name } />
                                     </label>
                                 </fieldset>
@@ -58,7 +62,7 @@ export default class AddCourseComponent extends Component {
                                     { this.state.holes.map((hole, idx) => <HoleEditComponent key={ idx } hole={ hole }/>) }
                                     { this.state.holes.length < 18 && <HoleEditComponent hole={ this.getNewHole() } addHole={ this.addHole }/> }
                                 </fieldset>
-                                <button onClick={ this.addCourseButtonClicked } className="btn--action wide">Add</button>
+                                <button disabled={ !this.state.name || this.state.name.length === 0 } onClick={ this.addCourseButtonClicked } className="btn--action wide">Add</button>
                             </div>
                         </div>
                     </div>

@@ -17,7 +17,7 @@ export default class HoleEditComponent extends Component {
 
         if(nextProps.hole.length === undefined) {
 
-            this.setState({ length: 0 })
+            this.setState({ length: 0 });
         }
     }
 
@@ -48,8 +48,8 @@ export default class HoleEditComponent extends Component {
 
     render () {
 
-        return <label className="f-edit-hole">
-            <div className="f-edit-hole-input">
+        return <label className="f-edit">
+            <div className="f-edit-input">
                 <div className="f-edit-hole__nr">{ this.props.hole.holeNr }</div>
 
                 <select value={ this.state.par } onChange={ this.parChanged }>

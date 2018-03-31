@@ -1,10 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
+    mode: 'development',
+    optimization: {
+        minimize: false
+    },
     devtool: 'eval-source-map',
     devServer: {
         stats: 'errors-only'
@@ -26,13 +29,7 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': JSON.stringify('development')
             }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: true
-            }
-        }),
-        new ExtractTextPlugin('style.css')
+        })
     ],
     module: {
         rules: [{
@@ -42,11 +39,11 @@ module.exports = {
         },
         {
             test: /\.json$/,
-            use: "file-loader"
+            use: 'file-loader'
         },
         {
             test: /\.scss$/,
-            use: ['style-loader','css-loader','sass-loader']
+            use: ['style-loader', 'css-loader', 'sass-loader']
         }]
     },
     resolve: {

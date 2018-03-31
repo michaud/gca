@@ -15,7 +15,7 @@ export default function (state = INITIAL_COURSES_STATE, action) {
         }
 
         case ADD_COURSE: {
-
+            
             return [...state, action.course];
         }
 

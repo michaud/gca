@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { } from 'actions/gameActions';
+import { saveCourse } from 'actions/courseActionCreators';
 
-import CourseNavigatorComponent from './CourseNavigatorComponent';
+import AddCourseComponent from 'components/course/AddCourseComponent';
 
 const mapStateToProps = (state) => {
 
-    const { courses } = state;
+    const {
+
+    } = state;
 
     return {
-        courses
     };
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-
-}, dispatch))(CourseNavigatorComponent);
+    saveCourse
+}, dispatch))(AddCourseComponent);

@@ -4,10 +4,14 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import './../../scss/_style.scss';
 
-import BagClubListContainer from 'components/app/BagClubListContainer';
-import HoleNavigatorContainer from 'components/app/HoleNavigatorContainer';
-import StrokesMap from './../map/StrokesMap';
-import CourseNavigatorContainer from 'components/app/course/CourseNavigatorContainer';
+import BagClubListContainer from 'components/bag/BagClubListContainer';
+import EditBagClubListContainer from 'components/bag/EditBagClubListContainer';
+import StrokesMap from 'components/map/StrokesMap';
+import CourseNavigatorContainer from 'components/course/CourseNavigatorContainer';
+import CourseListComponent from 'components/course/CourseListComponent';
+import AddCourseContainer from 'components/course/AddCourseContainer';
+import AddClubContainer from 'components/club/AddClubContainer';
+import ClubListComponent from 'components/club/ClubListComponent';
 
 injectTapEventPlugin();
 
@@ -16,7 +20,12 @@ class AppComponent extends Component {
     state = {
         path: [],
         mailData: 'mailto:michaud@venant.nl?body=',
-        mailStrokes: 'mailto:michaud@venant.nl?body='
+        mailStrokes: 'mailto:michaud@venant.nl?body=',
+        courseListOpen: false,
+        clubListOpen: false,
+        bagOpen: false,
+        addCourseOpen: false,
+        addHoleOpen: false
     }
 
     updatePath = (position) => {
@@ -54,17 +63,109 @@ class AppComponent extends Component {
         return `mailto:michaud@venant.nl?body=${ JSON.stringify({ path: this.props.gameHoles[0].strokes}) }`;
     }
 
-    render () {
+    addCourseClicked = () => {
 
+        this.setState((state) => ({
+            addCourseOpen: !state.addCourseOpen,
+            courseListOpen: true
+        }));
+    }
+
+    addClubClicked = () => {
+
+        this.setState((state) => ({
+            addClubOpen: !state.addClubOpen,
+            clubListOpen: true
+        }));
+    }
+
+    openClubListClicked = () => {
+        this.setState((state) => ({ clubListOpen: !state.clubListOpen }));
+    }
+
+    openBagClicked = () => {
+        this.setState((state) => ({ bagOpen: !state.bagOpen }));
+    }
+
+    selectCourseClicked = () => {
+
+        this.setState((state) => {
+
+            const courseListOpen = !state.courseListOpen;
+
+            return {
+                courseListOpen,
+                addCourseOpen: !courseListOpen ? false : state.addCourseOpen
+             };
+        });
+    }
+
+    render () {
         const {
-            gameHoles,
-            showStartup
+            courses,
+            clubs,
+            bag
         } = this.props;
 
         return <div>
             <CourseNavigatorContainer/>
-            <HoleNavigatorContainer/>
-            <BagClubListContainer/>
+            { courses.length > 0 &&
+                <button
+                    className="btn--action panel--edit__btn wide"
+                    onClick={ this.selectCourseClicked }>
+                    Select Course
+                </button>
+            }
+            { courses.length > 0 &&
+                <CourseListComponent
+                    courses={ courses }
+                    open={ this.state.courseListOpen }/>
+            }
+            { (courses.length === 0 || this.state.courseListOpen) &&
+                <button
+                    className="btn--action wide"
+                    onClick={ this.addCourseClicked }>
+                    Add course
+                </button>
+            }
+            { this.state.addCourseOpen && <AddCourseContainer /> }
+            { clubs.length > 0 &&
+                <button
+                    className="btn--action wide"
+                    onClick={ this.openBagClicked }>Bag</button>
+            }
+
+            { bag &&
+                bag.clubs.length === 0 &&
+                this.state.bagOpen &&
+                <EditBagClubListContainer/>
+            }
+
+            { bag &&
+                bag.clubs.length > 0 &&
+                this.state.bagOpen &&
+                <EditBagClubListContainer/>
+            }
+            { clubs.length === 0 &&
+                <button
+                    className="btn--action wide"
+                    onClick={ this.addClubClicked }>Add clubs</button>
+            }
+            { clubs.length > 0 &&
+                <button
+                    className="btn--action wide"
+                    onClick={ this.openClubListClicked }>Clubs</button>
+            }
+            { clubs.length > 0 &&
+                this.state.clubListOpen &&
+                <ClubListComponent clubs={ clubs } open={ this.state.clubListOpen }/>
+            }
+            { clubs.length > 0 && this.state.clubListOpen &&
+                <button
+                    className="btn--action wide"
+                    onClick={ this.addClubClicked }>Add clubs</button>
+            }
+            { this.state.addClubOpen && <AddClubContainer /> }
             {/* <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
             <StrokesMap isMarkerShown strokes={ this.state.path } />
             <div>

@@ -17,7 +17,8 @@ const mapStateToProps = (state) => {
         clubs,
         gameHoles,
         courses,
-        games
+        games,
+        bag
     } = state;
 
     return {
@@ -25,6 +26,7 @@ const mapStateToProps = (state) => {
         gameHoles,
         courses,
         games,
+        bag,
         showStartup: showStartup(state)
     };
 };

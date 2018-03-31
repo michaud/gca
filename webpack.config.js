@@ -4,6 +4,9 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
+    optimization: {
+        minimize: false
+    },
     entry: ['babel-polyfill',
         './src/index'
     ],
@@ -17,11 +20,6 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: true
-            }
-        }),
         new CopyWebpackPlugin([{ from: 'index.html', to: path.join(__dirname, 'build/index.html') }],
             { copyUnmodified: true })
     ],
@@ -33,16 +31,16 @@ module.exports = {
         },
         {
             test: /\.css$/,
-            use: ["style-loader", "css-loader"]
+            use: ['style-loader', 'css-loader']
         },
         {
             test: /\.json$/,
-            use: "file-loader"
+            use: 'file-loader'
         },
         {
             test: /\.scss$/,
-            use: ['style-loader','css-loader','sass-loader']
-            }
+            use: ['style-loader', 'css-loader', 'sass-loader']
+        }
         ]
     },
     resolve: {

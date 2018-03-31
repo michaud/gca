@@ -4,4 +4,8 @@
     border-radius: 0;
     border: 1px solid green;
     background: rgba(0,255,0,.5);
+
+    &:disabled {
+        background-color: lightgray;
+    }
 }

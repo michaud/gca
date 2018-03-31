@@ -6,3 +6,5 @@ export const showStartup = createSelector(
     getCourses,
     (courses) => courses.length === 0
 );
+
+
