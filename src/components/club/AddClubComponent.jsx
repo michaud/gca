@@ -27,45 +27,32 @@ class AddClubComponent extends Component {
 
     render () {
 
-        return <div className="panel--edit">
-        <div className="panel--edit__content-container">
-            <div className="panel--edit__content">
-                <div className="panel--edit">
-                    <div className="panel--edit__content-container">
-                        <div className="panel--edit__content">
-                            <fieldset className="f-fieldset">
-                                <label className="f-label">
-                                    <span className="f-label-text">club name</span>
-                                    <input
-                                        className="f-input"
-                                        type="text"
-                                        placeholder="club name"
-                                        onChange={ this.clubNameChanged }
-                                        value={ this.state.name } />
-                                </label>
-                                <label className="f-edit">
-                                    <div className="f-edit-input">
-                                        <select value={ this.state.clubType } onChange={ this.clubTypeChanged }>
-                                            <option value="putter">Putter</option>
-                                            <option value="lobwedge">Lob wedge</option>
-                                            <option value="sandwegde">Sand wedge</option>
-                                            <option value="pitchingwedge">Pitching wedge</option>
-                                            <option value="gapwedge">Gap wedge</option>
-                                            <option value="iron">Iron</option>
-                                            <option value="hybrid">Hybrid</option>
-                                            <option value="fairwaywood">Fairway wood</option>
-                                            <option value="driver">Driver</option>
-                                        </select>
-                                    </div>
-                                </label>
-                                <button disabled={ this.state.name.length === 0 } onClick={ this.addClubButtonClicked } className="btn--action wide">Add</button>
-                            </fieldset>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>;
+        return <fieldset className="f-fieldset">
+            <label className="f-label">
+                <span className="f-label-text">club name</span>
+                <input
+                    className="f-input"
+                    type="text"
+                    placeholder="club name"
+                    onChange={ this.clubNameChanged }
+                    value={ this.state.name } />
+            </label>
+            <label className="f-label">
+                <span className="f-label-text">club type</span>
+                <select className="f-select" value={ this.state.clubType } onChange={ this.clubTypeChanged }>
+                    <option value="putter">Putter</option>
+                    <option value="lobwedge">Lob wedge</option>
+                    <option value="sandwegde">Sand wedge</option>
+                    <option value="pitchingwedge">Pitching wedge</option>
+                    <option value="gapwedge">Gap wedge</option>
+                    <option value="iron">Iron</option>
+                    <option value="hybrid">Hybrid</option>
+                    <option value="fairwaywood">Fairway wood</option>
+                    <option value="driver">Driver</option>
+                </select>
+            </label>
+            <button disabled={ this.state.name.length === 0 } onClick={ this.addClubButtonClicked } className="btn--action wide">Add</button>
+        </fieldset>;
     }
 }
 

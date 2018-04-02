@@ -7,22 +7,13 @@
 }
 
 .player-item {
+
     display: flex;
     flex: 1;
-    padding: 1rem;
 }
 
-.player-item__label {
-    flex: 5;
-
-    &:before {
-        display: inline-block;
-        content: '';
-        height: 100%;
-        vertical-align: middle;
-    }
-}
 .player-item__btn {
+
     flex: 1;
     max-width: 4rem;
 }

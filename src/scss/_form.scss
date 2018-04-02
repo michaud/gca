@@ -31,12 +31,16 @@
 
 .f-select { 
     flex: 1;
+
+    option {
+        padding-left: 1rem;
+    }
 }
 
 .f-label-text {
 
     display: block;
-    width: 30%;
+    width: 33%;
     padding-right: 1rem; 
 
     &:before {
@@ -96,8 +100,9 @@
     }
 }
 
-.f-btn-add-hole {
+.f-btn--knob {
     flex: 1;
     min-height: 4rem;
     max-width: 4rem;
+    white-space: normal;
 }

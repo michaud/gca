@@ -9,7 +9,7 @@ import MarkerListComponent from './MarkerListComponent';
 const mapStateToProps = (state, ownProps) => {
 
     const { markers } = state;
-    console.log('markers: ', markers);
+
     return {
         markers
     };

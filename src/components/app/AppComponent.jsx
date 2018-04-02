@@ -13,8 +13,7 @@ import AddClubContainer from 'components/club/AddClubContainer';
 import ClubListComponent from 'components/club/ClubListComponent';
 import NewGameContainer from 'components/game/NewGameContainer';
 import PlayerContainer from 'components/player/PlayerContainer';
-import MarkerListContainer from 'components/player/MarkerListContainer';
-import AddMarkerContainer from 'components/player/AddMarkerContainer';
+import MarkersComponent from 'components/player/MarkersComponent';
 
 injectTapEventPlugin();
 
@@ -30,9 +29,7 @@ class AppComponent extends Component {
         addCourseOpen: false,
         addHoleOpen: false,
         addGameOpen: false,
-        playerOpen: false,
-        markerListOpen: false,
-        addMarkerOpen: false
+        playerOpen: false
     }
 
     updatePath = (position) => {
@@ -137,29 +134,6 @@ class AppComponent extends Component {
         });
     }
 
-    markerListOpenClicked = () => {
-
-        this.setState((state) => {
-
-            const markerListOpen = !state.markerListOpen;
-
-            return {
-                markerListOpen,
-                addMarkerOpen: !markerListOpen ? false : state.addMarkerOpen
-            };
-        });
-    }
-
-    AddMarkerOpenClicked = () => {
-
-        this.setState((state) => {
-
-            return {
-                addMarkerOpen: !state.addMarkerOpen
-            };
-        });
-    }
-
     render () {
         const {
             courses,
@@ -170,20 +144,11 @@ class AppComponent extends Component {
         return <div>
             <button
                 className="btn--action panel--edit__btn wide"
-                onClick={ this.markerListOpenClicked }>
-                Markers
+                onClick={ this.AddGameOpenClicked }>
+                New game
             </button>
-            { this.state.markerListOpen &&
-                <MarkerListContainer/>
-            }
-            { this.state.markerListOpen &&
-                <button
-                    className="btn--action wide"
-                    onClick={ this.AddMarkerOpenClicked }>Add marker</button>
-            }
-            { this.state.markerListOpen &&
-                this.state.addMarkerOpen &&
-                <AddMarkerContainer/>
+            { this.state.addGameOpen &&
+                <NewGameContainer/>
             }
             <button
                 className="btn--action panel--edit__btn wide"
@@ -192,14 +157,6 @@ class AppComponent extends Component {
             </button>
             { this.state.playerOpen &&
                 <PlayerContainer/>
-            }
-            <button
-                className="btn--action panel--edit__btn wide"
-                onClick={ this.AddGameOpenClicked }>
-                New game
-            </button>
-            { this.state.addGameOpen &&
-                <NewGameContainer/>
             }
             <CourseNavigatorContainer/>
             { courses.length > 0 &&
@@ -263,6 +220,7 @@ class AppComponent extends Component {
                 this.state.addClubOpen &&
                 <AddClubContainer />
             }
+            <MarkersComponent/>
             {/* <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
             <StrokesMap isMarkerShown strokes={ this.state.path } />
             <div>

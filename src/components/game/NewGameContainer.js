@@ -8,10 +8,14 @@ import NewGameComponent from 'components/game/NewGameComponent';
 
 const mapStateToProps = (state, ownProps) => {
 
-    const { courses } = state;
+    const {
+        courses,
+        markers
+    } = state;
 
     return {
-        courses
+        courses,
+        markers
     };
 };
 

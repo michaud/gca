@@ -2,19 +2,15 @@ import React from 'react';
 
 const ClubListComponent = ({ clubs }) => {
 
-    return <div className={ `panel--edit${ open ? '' : ' collapsed' } `}>
-        <div className={ `panel--edit__content-container${ open ? '' : ' hidden' }` }>
-            <div className="panel--edit__content">
-                <h2>Clubs</h2>
-
-                { clubs &&
-                    <ol className="course-list">
-                    { clubs.map((club, idx) => <li className="course-list__item" key={idx}>{ club.name }</li>) }
-                    </ol>
-                }
-            </div>
-        </div>
-    </div>;
+    return <ol className="plain-list item-list">
+        { clubs.map((club, idx) =>
+            <li className="list__item" key={idx}>
+                <div className="list-item__container">
+                    <div className="list-item__label">{ club.name }</div>
+                </div>
+            </li>)
+        }
+    </ol>;
 };
 
 export default ClubListComponent;
