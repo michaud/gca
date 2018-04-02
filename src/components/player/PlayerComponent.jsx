@@ -24,8 +24,6 @@ class PlayerComponent extends Component {
 
     render () {
 
-        const { player } = this.props;
-
         return <fieldset className="f-fieldset">
             <label className="f-label">
                 <span className="f-label-text">first name</span>

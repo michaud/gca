@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import PlayerComponent from 'components/player/PlayerComponent';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
     const { player } = state;
 
