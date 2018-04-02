@@ -2,18 +2,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import {
-    saveClub
-} from 'actions/clubActionCreators';
+    saveMarker
+} from 'actions/markerActionCreators';
 
-import AddClubComponent from 'components/club/AddClubComponent';
+import AddMarkerComponent from './AddMarkerComponent';
 
 const mapStateToProps = (state, ownProps) => {
 
     return {
-
     };
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-    saveClub
-}, dispatch))(AddClubComponent);
+    saveMarker
+}, dispatch))(AddMarkerComponent);

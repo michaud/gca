@@ -1,4 +1,4 @@
-.course-list__item {
+.player-list__item {
 
     display: flex;
     min-height: 4rem;
@@ -6,13 +6,13 @@
     width: 100%;
 }
 
-.course-item {
+.player-item {
     display: flex;
     flex: 1;
     padding: 1rem;
 }
 
-.course-item__label {
+.player-item__label {
     flex: 5;
 
     &:before {
@@ -22,7 +22,7 @@
         vertical-align: middle;
     }
 }
-.course-item__btn {
+.player-item__btn {
     flex: 1;
     max-width: 4rem;
 }

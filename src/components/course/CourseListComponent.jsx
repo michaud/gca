@@ -1,15 +1,18 @@
 import React from 'react';
 
-const CourseListComponent = ({ courses, open }) => {
+const CourseListComponent = ({ courses }) => {
 
-    return <div className={ `panel--edit${ open ? '' : ' collapsed' } `}>
-        <div className={ `panel--edit__content-container${ open ? '' : ' hidden' }` }>
-            <div className="panel--edit__content">
-                <h2>Courses</h2>
-                {courses && <ol className="course-list">
-                {courses.map((course, idx) => <li className="course-list__item" key={idx}>{ course.name }</li>)}
-                </ol>}
-            </div>
+    return <div className="panel--edit">
+        <div className="panel--edit__content">
+            { courses && <ol className="plain-list course-list">
+            { courses.map((course, idx) =>
+                <li className="course-list__item" key={idx}>
+                    <div className="course-item">
+                        <div className="course-item__label">{ course.name }</div>
+                        <button className="f-btn-add-hole btn--action">new game</button>
+                    </div>
+                </li>)}
+            </ol>}
         </div>
     </div>;
 };

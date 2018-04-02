@@ -22,7 +22,7 @@ class AddClubComponent extends Component {
     addClubButtonClicked = () => {
 
         this.props.saveClub({...this.state });
-        this.setState({ ...clubData })
+        this.setState({ ...clubData });
     }
 
     render () {
@@ -43,8 +43,6 @@ class AddClubComponent extends Component {
                                         onChange={ this.clubNameChanged }
                                         value={ this.state.name } />
                                 </label>
-                            </fieldset>
-                            <fieldset className="f-fieldset">
                                 <label className="f-edit">
                                     <div className="f-edit-input">
                                         <select value={ this.state.clubType } onChange={ this.clubTypeChanged }>
@@ -60,8 +58,8 @@ class AddClubComponent extends Component {
                                         </select>
                                     </div>
                                 </label>
+                                <button disabled={ this.state.name.length === 0 } onClick={ this.addClubButtonClicked } className="btn--action wide">Add</button>
                             </fieldset>
-                            <button disabled={ this.state.name.length === 0 } onClick={ this.addClubButtonClicked } className="btn--action wide">Add</button>
                             </div>
                         </div>
                     </div>
