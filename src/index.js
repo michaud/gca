@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainAppContainer from './components/app/MainAppContainer';
+import AppContainer from './components/app/AppContainer';
 import { Provider } from 'react-redux';
-import { AppContainer } from 'react-hot-loader';
+import { AppContainer as HotLoaderContainer } from 'react-hot-loader';
 
 import './scss/_style.scss';
 
@@ -13,16 +13,16 @@ const store = configureStore();
 const app = document.getElementById('app-container');
 
 const render = App => {
-  ReactDOM.render(<AppContainer>
+  ReactDOM.render(<HotLoaderContainer>
         <Provider store={ store }>
             <App />
         </Provider>
-    </AppContainer>,
+    </HotLoaderContainer>,
     app);
 };
 
-render(MainAppContainer);
+render(AppContainer);
 
 if (module.hot) {
-  module.hot.accept('./components/app/MainAppContainer', () => render(MainAppContainer));
+  module.hot.accept('./components/app/AppContainer', () => render(AppContainer));
 }
