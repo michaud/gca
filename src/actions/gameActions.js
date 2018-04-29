@@ -1,6 +1,6 @@
-import { saveStrokeLocation } from 'actions/geoActions';
+import { START_GAME } from 'actions/actionTypes';
 
-export const strokeAdded = (club) => (dispatch, getState) => {// eslint-disable-line no-unused-vars
-
-    dispatch(saveStrokeLocation(club));
-};
+export const startGame = (gameData) => ({
+    type: START_GAME,
+    gameData
+});

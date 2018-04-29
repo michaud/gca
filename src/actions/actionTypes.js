@@ -9,3 +9,5 @@ export const ADD_CLUB_TO_BAG = 'ADD_CLUB_TO_BAG';
 export const REMOVE_CLUB_FROM_BAG = 'REMOVE_CLUB_FROM_BAG';
 
 export const ADD_MARKER = 'ADD_MARKER';
+
+export const START_GAME = 'START_GAME';
