@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 export const courseData = {
+    id: undefined,
     name: '',
     holes: [],
     slope: undefined
@@ -14,7 +15,7 @@ export const playerData = {
     firstName: '',
     lastName: '',
     playingHandicap: 0,
-    handicap: 0
+    handicap: 23
 };
 
 export const holeData = {
@@ -24,8 +25,8 @@ export const holeData = {
     length: undefined
 };
 
-const coursesData = [{ ...courseData, name: 'plop1' },
-{ ...courseData, name: 'plop2' }];
+const coursesData = [{ ...courseData, name: 'plop1', id: '1' },
+{ ...courseData, name: 'plop2', id: '2' }];
 
 const bagData = {
     clubs: []
@@ -193,6 +194,25 @@ const gameHolesData = [{
     holeLocation: undefined,
     strokes: []
 }];
+
+export const gameData = {
+    name: '',
+    gameDate: undefined,
+    bag: bagData,
+    playingHandicap: undefined,
+    handicap: undefined,
+    players: {
+        player: {
+            name: undefined,
+            exactHandicap: undefined
+        },
+        marker: {
+            name: undefined,
+            exactHandicap: undefined
+        }
+    },
+    course: undefined
+};
 
 const gamesData = [{
     name: 'gamename',

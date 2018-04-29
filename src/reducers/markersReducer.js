@@ -1,3 +1,5 @@
+import cuid from 'cuid';
+
 import {
     INIT_APP, ADD_MARKER
 } from './../actions/actionTypes';
@@ -14,9 +16,13 @@ export default function (state = INITIAL_MARKERS_STATE, action) {
         }
 
         case ADD_MARKER: {
+
             const { marker } = action;
 
-            return [...state, marker ];
+            return [
+                ...state,
+                { ...marker, id: cuid() }
+            ];
         }
         default: {
 

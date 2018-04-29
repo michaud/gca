@@ -1,6 +1,7 @@
 import * as type from './../actions/actionTypes';
 
 import cuid from 'cuid';
+
 import { INITIAL_CLUBS_STATE } from './initialStates';
 
 export default function (state = INITIAL_CLUBS_STATE, action) {
@@ -10,11 +11,10 @@ export default function (state = INITIAL_CLUBS_STATE, action) {
         case type.ADD_CLUB: {
 
             const { club } = action;
-            const newClub = { ...club, id: cuid() };
 
             return [
                 ...state,
-                newClub
+                { ...club, id: cuid() }
             ];
         }
 

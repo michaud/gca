@@ -52,14 +52,14 @@ export default class HoleEditComponent extends Component {
             <div className="f-edit-input">
                 <div className="f-edit-hole__nr">{ this.props.hole.holeNr }</div>
 
-                <select value={ this.state.par } onChange={ this.parChanged }>
+                <select className="f-select" value={ this.state.par } onChange={ this.parChanged }>
                     <option value="2">par 2</option>
                     <option value="3">par 3</option>
                     <option value="4">par 4</option>
                     <option value="5">par 5</option>
                     <option value="5">par 6</option>
                 </select>
-                <select value={ this.state.si } onChange={ this.siChanged }>
+                <select className="f-select" value={ this.state.si } onChange={ this.siChanged }>
                     <option value="1">s.i. 1</option>
                     <option value="2">s.i. 2</option>
                     <option value="3">s.i. 3</option>
@@ -86,7 +86,7 @@ export default class HoleEditComponent extends Component {
                     placeholder="length"
                     onChange={ this.lengthChanged }/>
             </div>
-            { this.props.addHole && <button className="f-btn--knob btn--action" onClick={ this.addHole }>add</button> }
+            { this.props.addHole && <button className="f-btn--knob btn--action btn--trail" onClick={ this.addHole }>add</button> }
         </label>;
     }
 }

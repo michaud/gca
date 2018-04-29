@@ -39,7 +39,7 @@ class AddClubComponent extends Component {
             </label>
             <label className="f-label">
                 <span className="f-label-text">club type</span>
-                <select className="f-select" value={ this.state.clubType } onChange={ this.clubTypeChanged }>
+                <select className="f-select--new" value={ this.state.clubType } onChange={ this.clubTypeChanged }>
                     <option value="putter">Putter</option>
                     <option value="lobwedge">Lob wedge</option>
                     <option value="sandwegde">Sand wedge</option>

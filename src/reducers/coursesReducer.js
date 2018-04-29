@@ -1,3 +1,5 @@
+import cuid from 'cuid';
+
 import {
     INIT_APP,
     ADD_COURSE
@@ -15,8 +17,13 @@ export default function (state = INITIAL_COURSES_STATE, action) {
         }
 
         case ADD_COURSE: {
-            
-            return [...state, action.course];
+
+            const { course } = action;
+
+            return [
+                ...state,
+                { ...course, id: cuid() }
+            ];
         }
 
         default: {

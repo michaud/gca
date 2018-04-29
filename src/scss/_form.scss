@@ -1,7 +1,22 @@
+@mixin f-box-input { 
+
+    min-height: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid rgb(216, 204, 151);
+    border-radius: 3px;
+    background: rgb(252, 250, 237);
+
+    &:focus {
+        outline: 1px solid green;
+    }
+}
+
 .f-fieldset {
 
     border: none;
-    padding: 1rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
 }
 
 .f-legend {
@@ -11,10 +26,10 @@
 
 .f-label {
 
-    min-height: 4rem;
     display: flex;
-    white-space: nowrap;
     margin-bottom : 1rem;
+
+    align-items: center;
 
     &:last-child {
         margin-bottom: 0;
@@ -23,34 +38,45 @@
 
 .f-input {
 
-    display: inline-block;
-    width: 70%;
-    padding: .5rem;
-    font-size: 16px;
+    @include f-box-input;
+
+    flex: 8 0;
 }
 
-.f-select { 
-    flex: 1;
+.f-select {
+    @include f-box-input;
+}
+
+.f-select--wide { 
+
+    @include f-box-input;
+    
+    flex: 8 0;
 
     option {
         padding-left: 1rem;
     }
 }
+.f-input-field {
+
+    min-height: 4rem;
+}
+
+.f-select--new {
+
+    @include f-box-input;
+
+    flex: 6 0;
+
+    &:focus {
+        outline: 1px solid green;
+    }
+}
 
 .f-label-text {
 
-    display: block;
-    width: 33%;
+    width: 25%;
     padding-right: 1rem; 
-
-    &:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-        margin: 1px;
-
-    }
 }
 
 .f-edit {
@@ -81,7 +107,7 @@
 }
 
 .f-input--length {
-    width: 4rem;
+    max-width: 6rem;
     text-align: right;
 }
 
@@ -104,5 +130,7 @@
     flex: 1;
     min-height: 4rem;
     max-width: 4rem;
+    min-width: 4rem;
     white-space: normal;
+    border-radius: 3px;
 }

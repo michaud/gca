@@ -6,14 +6,28 @@ import './../../scss/_style.scss';
 
 import EditBagClubListContainer from 'components/bag/EditBagClubListContainer';
 import StrokesMap from 'components/map/StrokesMap';
-import CourseNavigatorContainer from 'components/course/CourseNavigatorContainer';
+
 import CourseListComponent from 'components/course/CourseListComponent';
 import AddCourseContainer from 'components/course/AddCourseContainer';
 import AddClubContainer from 'components/club/AddClubContainer';
 import ClubListComponent from 'components/club/ClubListComponent';
-import NewGameContainer from 'components/game/NewGameContainer';
+import EditGameContainer from 'components/game/EditGameContainer';
 import PlayerContainer from 'components/player/PlayerContainer';
-import MarkersComponent from 'components/player/MarkersComponent';
+import MarkerListContainer from 'components/player/MarkerListContainer';
+import AddMarkerContainer from 'components/player/AddMarkerContainer';
+
+const uiDefaultState = {
+    addCourseOpen: false,
+    courseListOpen: false,
+    addClubOpen: false,
+    clubListOpen: false,
+    bagOpen: false,
+    addHoleOpen: false,
+    newGameOpen: false,
+    playerOpen: false,
+    markerListOpen: false,
+    addMarkerOpen: false
+};
 
 injectTapEventPlugin();
 
@@ -23,13 +37,7 @@ class AppComponent extends Component {
         path: [],
         mailData: 'mailto:michaud@venant.nl?body=',
         mailStrokes: 'mailto:michaud@venant.nl?body=',
-        courseListOpen: false,
-        clubListOpen: false,
-        bagOpen: false,
-        addCourseOpen: false,
-        addHoleOpen: false,
-        addGameOpen: false,
-        playerOpen: false
+        ...uiDefaultState
     }
 
     updatePath = (position) => {
@@ -70,6 +78,8 @@ class AppComponent extends Component {
     addCourseClicked = () => {
 
         this.setState((state) => ({
+            ...state,
+            ...uiDefaultState,
             addCourseOpen: !state.addCourseOpen,
             courseListOpen: true
         }));
@@ -78,9 +88,11 @@ class AppComponent extends Component {
     addClubClicked = () => {
 
         this.setState((state) => ({
+            ...state,
+            ...uiDefaultState,
             addClubOpen: !state.addClubOpen,
             clubListOpen: true
-        }));
+    }));
     }
 
     openClubListClicked = () => {
@@ -90,7 +102,9 @@ class AppComponent extends Component {
             const clubListOpen = !state.clubListOpen;
 
             return {
-                clubListOpen: clubListOpen,
+                ...state,
+                ...uiDefaultState,
+                clubListOpen,
                 addClubOpen: !clubListOpen ? false : state.addClubOpen
             };
         });
@@ -98,7 +112,11 @@ class AppComponent extends Component {
 
     openBagClicked = () => {
 
-        this.setState((state) => ({ bagOpen: !state.bagOpen }));
+        this.setState((state) => ({
+            ...state,
+            ...uiDefaultState,
+            bagOpen: !state.bagOpen
+        }));
     }
 
     selectCourseClicked = () => {
@@ -108,18 +126,22 @@ class AppComponent extends Component {
             const courseListOpen = !state.courseListOpen;
 
             return {
+                ...state,
+                ...uiDefaultState,
                 courseListOpen,
                 addCourseOpen: !courseListOpen ? false : state.addCourseOpen
-             };
+            };
         });
     }
 
-    AddGameOpenClicked = () => {
+    NewGameOpenClicked = () => {
 
         this.setState((state) => {
 
             return {
-                addGameOpen: !state.addGameOpen
+                ...state,
+                ...uiDefaultState,
+                newGameOpen: !state.newGameOpen
             };
         });
     }
@@ -129,98 +151,143 @@ class AppComponent extends Component {
         this.setState((state) => {
 
             return {
+                ...state,
+                ...uiDefaultState,
                 playerOpen: !state.playerOpen
             };
         });
     }
 
+    markerListOpenClicked = () => {
+
+        this.setState((state) => {
+
+            const markerListOpen = !state.markerListOpen;
+
+            return {
+                ...state,
+                ...uiDefaultState,
+                markerListOpen,
+                addMarkerOpen: !markerListOpen ? false : state.addMarkerOpen
+            };
+        });
+    }
+
+    addMarkerOpenClicked = () => {
+
+        this.setState((state) => {
+
+            const addMarkerOpen = !state.addMarkerOpen;
+
+            return {
+                ...state,
+                ...uiDefaultState,
+                markerListOpen: addMarkerOpen ? true : state.markerListOpen,
+                addMarkerOpen
+            };
+        });
+    }
+
     render () {
+
         const {
             courses,
             clubs,
             bag
         } = this.props;
 
-        return <div>
+        return <div style={{ paddingBottom: '5rem' }}>
             <button
-                className="btn--action panel--edit__btn wide"
-                onClick={ this.AddGameOpenClicked }>
+                className="btn--action wide"
+                onClick={ this.NewGameOpenClicked }>
                 New game
             </button>
-            { this.state.addGameOpen &&
-                <NewGameContainer/>
+            { this.state.newGameOpen &&
+                <EditGameContainer/>
             }
-            <button
-                className="btn--action panel--edit__btn wide"
-                onClick={ this.playerOpenClicked }>
-                Player
-            </button>
-            { this.state.playerOpen &&
-                <PlayerContainer/>
-            }
-            <CourseNavigatorContainer/>
-            { courses.length > 0 &&
+            <div style={{ display: 'flex', position: 'fixed', bottom: 0, width: '100%' }}>
                 <button
-                    className="btn--action panel--edit__btn wide"
+                    className="btn--action wide"
+                    onClick={ this.playerOpenClicked }>
+                    Player
+                </button>
+                { courses.length > 0 &&
+                <button
+                    className="btn--action wide"
                     onClick={ this.selectCourseClicked }>
                     Courses
                 </button>
+                }
+                { clubs.length > 0 &&
+                    <button
+                        className="btn--action wide"
+                        onClick={ this.openBagClicked }>Bag</button>
+                }
+                <button
+                    className="btn--action wide"
+                    onClick={ clubs.length === 0 ? this.addClubClicked : this.openClubListClicked }>Clubs</button>
+                <button
+                    className="btn--action wide"
+                    onClick={ this.markerListOpenClicked }>
+                    Markers
+                </button>
+            </div>
+            { this.state.playerOpen &&
+                <PlayerContainer/>
+            }
+            { (courses.length === 0 || this.state.courseListOpen) &&
+                <h2 className="header--action">
+                    <span className="header--action__text">Courses</span>
+                    <button
+                    className="btn--action f-btn--knob btn--add"
+                    onClick={ this.addCourseClicked }>+</button>
+                </h2>
+            }
+            { this.state.addCourseOpen &&
+                <AddCourseContainer />
             }
             { courses.length > 0 &&
                 this.state.courseListOpen &&
-                <CourseListComponent
-                    courses={ courses }
-                    open={ this.state.courseListOpen }/>
+                    <CourseListComponent
+                        courses={ courses }
+                        open={ this.state.courseListOpen }/>
             }
-            { (courses.length === 0 || this.state.courseListOpen) &&
-                <button
-                    className="btn--action wide"
-                    onClick={ this.addCourseClicked }>
-                    Add course
-                </button>
-            }
-            { this.state.addCourseOpen && <AddCourseContainer /> }
-            { clubs.length > 0 &&
-                <button
-                    className="btn--action wide"
-                    onClick={ this.openBagClicked }>Bag</button>
-            }
-
             { bag &&
-                bag.clubs.length === 0 &&
+                bag.clubs.length >= 0 &&
                 this.state.bagOpen &&
                 <EditBagClubListContainer/>
             }
-
-            { bag &&
-                bag.clubs.length > 0 &&
-                this.state.bagOpen &&
-                <EditBagClubListContainer/>
+            { this.state.clubListOpen &&
+                <h2 className="header--action">
+                    <span className="header--action__text">Clubs</span>
+                    <button
+                    className="btn--action f-btn--knob btn--add"
+                    onClick={ this.addClubClicked }>+</button>
+                </h2>
             }
-            { clubs.length === 0 &&
-                <button
-                    className="btn--action wide"
-                    onClick={ this.addClubClicked }>Clubs</button>
-            }
-            { clubs.length > 0 &&
-                <button
-                    className="btn--action wide"
-                    onClick={ this.openClubListClicked }>Clubs</button>
+            { this.state.clubListOpen &&
+                this.state.addClubOpen &&
+                <AddClubContainer/>
             }
             { clubs.length > 0 &&
                 this.state.clubListOpen &&
                 <ClubListComponent clubs={ clubs } open={ this.state.clubListOpen }/>
             }
-            { clubs.length > 0 && this.state.clubListOpen &&
-                <button
-                    className="btn--action wide"
-                    onClick={ this.addClubClicked }>Add clubs</button>
+            { this.state.markerListOpen &&
+                <h2 className="header--action">
+                    <span className="header--action__text">Markers</span>
+                    <button
+                    className="btn--action f-btn--knob btn--add"
+                    onClick={ this.addMarkerOpenClicked }>+</button>
+                </h2>
             }
-            { this.state.clubListOpen &&
-                this.state.addClubOpen &&
-                <AddClubContainer />
+            { this.state.markerListOpen &&
+                this.state.addMarkerOpen &&
+                <AddMarkerContainer/>
             }
-            <MarkersComponent/>
+            { this.state.markerListOpen &&
+                <MarkerListContainer/>
+            }
             {/* <StrokesMap isMarkerShown strokes={ gameHoles[0].strokes } />
             <StrokesMap isMarkerShown strokes={ this.state.path } />
             <div>

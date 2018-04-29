@@ -1,23 +1,27 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// import {
-// } from 'actions/appActionCreators';
+import {
+    startingGame
+} from 'actions/gameActionCreators';
 
-import NewGameComponent from 'components/game/NewGameComponent';
+import EditGameComponent from 'components/game/EditGameComponent';
 
 const mapStateToProps = (state, ownProps) => {
 
     const {
         courses,
-        markers
+        markers,
+        player
     } = state;
 
     return {
         courses,
-        markers
+        markers,
+        player
     };
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-}, dispatch))(NewGameComponent);
+    startingGame
+}, dispatch))(EditGameComponent);

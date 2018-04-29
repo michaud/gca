@@ -27,20 +27,20 @@ class EditBagClubListComponent extends Component {
             bag
         } = this.props;
 
-        return <div style={{ display: 'flex'}}>
-            <div style={{ flex: 1, padding: '0 1rem' }}>
-                <h3>bag</h3>
-                <ul className="plain-list ">
-                { this.renderBagClubs(bag, clubs) }
-                </ul>
+        return <React.Fragment>
+            <div className="fl-row fl-spread">
+                <h3 className="bag-header">bag</h3>
+                <h3 className="bag-header">clubs</h3>
             </div>
-            <div style={{ flex: 1, padding: '0 1rem 1rem 1rem' }}>
-                <h3>clubs</h3>
-                <ul className="plain-list">
+            <div className="fl-row fl-spread">
+                    <ul className="plain-list bag-list">
+                    { this.renderBagClubs(bag, clubs) }
+                    </ul>
+                    <ul className="plain-list bag-list">
                     { clubs.map((club, idx) => <li className="edit-club-list__item" key={ idx }><button disabled={ club.inBag } className="f-btn--knob btn--action" onClick={ () => this.addClubToBag(club) }>&lt;</button><div className="edit-club-list__club-label">{ club.name }</div></li>) }
                 </ul>
             </div>
-        </div>;
+        </React.Fragment>;
     }
 }
 
