@@ -1,27 +1,26 @@
 var path = require('path');
-var webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+var HtmlWebPackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-    optimization: {
-        minimize: false
-    },
+
     entry: ['babel-polyfill',
         './src/index'
     ],
     output: {
         path: path.join(__dirname, 'build/js'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
+        new HtmlWebPackPlugin({
+            template: './index-template.html',
+            hash: false,
+            title: 'NL-ix',
+            filename: './index.html'
         }),
-        new CopyWebpackPlugin([{ from: 'index.html', to: path.join(__dirname, 'build/index.html') }],
-            { copyUnmodified: true })
+        new CleanWebpackPlugin(['build'])
     ],
     module: {
         rules: [{
@@ -42,6 +41,10 @@ module.exports = {
             use: ['style-loader', 'css-loader', 'sass-loader']
         }
         ]
+    },
+    devServer: {
+        port: 3000,
+        historyApiFallback: true
     },
     resolve: {
         extensions: ['.scss', '.js', '.jsx', '.json'],

@@ -4,7 +4,7 @@
     "description": "Golf Course Assistant",
     "main": "index.js",
     "scripts": {
-        "start": "node server.js --env=dev",
+        "start": "webpack-dev-server --mode development --hot",
         "dev-prod": "webpack -p --debug --progress --profile --config webpack.dev-prod.config.js  > compilation.txt",
         "build": "webpack -p --debug --progress --profile --config webpack.config.js"
     },
@@ -33,7 +33,7 @@
         "babel-preset-react": "^6.0.15",
         "babel-preset-stage-0": "^6.0.15",
         "babel-preset-stage-1": "^6.13.0",
-        "clean-webpack-plugin": "^0.1.17",
+        "clean-webpack-plugin": "^0.1.19",
         "copy-webpack-plugin": "^4.0.1",
         "cross-env": "^5.0.5",
         "crypto-js": "^3.1.9-1",
@@ -44,7 +44,7 @@
         "eslint-plugin-react": "^7.4.0",
         "extract-text-webpack-plugin": "^3.0.0",
         "file-loader": "^1.1.4",
-        "html-webpack-plugin": "^2.30.1",
+        "html-webpack-plugin": "^3.2.0",
         "material-ui-pickers": "^1.0.0-rc.9",
         "moment": "^2.22.1",
         "node-sass": "^4.5.0",
