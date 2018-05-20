@@ -12,6 +12,37 @@
     }
 }
 
+@mixin mui__f-box-input {
+    
+    height: initial;
+    padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mui__f-box-input-container {
+    &.mui__f-box-input-container {
+        @include f-box-input;
+        flex: 8 0;
+        &:before,
+        &:after,
+        &:hover {
+            border-bottom:1px solid rgb(216, 204, 151);
+        }
+        .MuiInput-underline-11:after,
+        .MuiInput-underline-11:before,
+        .MuiInput-underline-11:hover:not(.MuiInput-disabled-10):not(.MuiInput-focused-9):not(.MuiInput-error-12):before {
+
+            border-bottom: none;
+        }
+        .MuiInput-input-15 {
+            padding: 1.1rem 0;
+            font-size: 1.2rem;
+            font-family: 'Assistant', sans-serif !important;
+        }
+    }
+}
+
 .f-fieldset {
 
     border: none;
@@ -36,11 +67,16 @@
     }
 }
 
-.f-input {
+.f-input.f-input {
 
     @include f-box-input;
+    @include mui__f-box-input;
 
     flex: 8 0;
+}
+
+.f-input--fields {
+    margin-right: 1rem;
 }
 
 .f-select {

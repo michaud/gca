@@ -16,7 +16,23 @@ class EditBagClubListComponent extends Component {
 
         return bag.clubs.map((clubId, idx) => {
             const club = clubs.find((targetClub) => targetClub.id === clubId);
-            return <li className="edit-club-list__item" key={ idx }><div className="edit-club-list__club-label">{ club.name }</div><button className="f-btn--knob btn--action" onClick={ () => this.removeClubFromBag(club) }>&gt;</button></li>;
+            return <li className="edit-club-list__item" key={ idx }>
+                <div className="edit-club-list__club-label">{ club.name }</div>
+                <button className="btn--action f-btn--knob" onClick={ () => this.removeClubFromBag(club) }>
+                    <div class="btn--action__label">&gt;</div>
+                </button>
+            </li>;
+        });
+    }
+
+    renderClubs = (clubs) => {
+        return clubs.map((club, idx) => {
+            return <li className="edit-club-list__item" key={ idx }>
+                <button disabled={ club.inBag } className="f-btn--knob btn--action" onClick={ () => this.addClubToBag(club) }>
+                    <div class="btn--action__label">&lt;</div>
+                </button>
+                <div className="edit-club-list__club-label">{ club.name }</div>
+            </li>;
         });
     }
 
@@ -37,7 +53,7 @@ class EditBagClubListComponent extends Component {
                     { this.renderBagClubs(bag, clubs) }
                     </ul>
                     <ul className="plain-list bag-list">
-                    { clubs.map((club, idx) => <li className="edit-club-list__item" key={ idx }><button disabled={ club.inBag } className="f-btn--knob btn--action" onClick={ () => this.addClubToBag(club) }>&lt;</button><div className="edit-club-list__club-label">{ club.name }</div></li>) }
+                    { this.renderClubs(clubs) }
                 </ul>
             </div>
         </React.Fragment>;

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 
 import { saveCourse } from 'actions/courseActionCreators';
 
-import AddCourseComponent from 'components/course/AddCourseComponent';
+import EditCourseComponent from 'components/course/EditCourseComponent';
 
 const mapStateToProps = (state) => {
 
@@ -17,4 +17,4 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
     saveCourse
-}, dispatch))(AddCourseComponent);
+}, dispatch))(EditCourseComponent);

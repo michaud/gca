@@ -14,25 +14,17 @@ import AppComponent from './AppComponent';
 const mapStateToProps = (state) => {
 
     const {
-        clubs,
         gameHoles,
-        courses,
-        games,
-        bag
+        games
     } = state;
 
     return {
-        clubs,
         gameHoles,
-        courses,
         games,
-        bag,
         showStartup: showStartup(state)
     };
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-    loadAppData,
-    createCourse,
-    saveCourse
+    loadAppData
 }, dispatch))(AppComponent);

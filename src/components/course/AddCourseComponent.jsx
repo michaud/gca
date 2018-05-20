@@ -1,58 +1,38 @@
 import React, { Component } from 'react';
 
-import HoleEditComponent from 'components/hole/HoleEditComponent';
+import CourseListContainer from 'components/course/CourseListContainer';
+import EditCourseContainer from 'components/course/EditCourseContainer';
 
-import {
-    holeData,
-    courseData
-} from 'reducers/initialStates';
-
-export default class AddCourseComponent extends Component {
+class AddCourseComponent extends Component {
 
     state = {
-        ...courseData
+        addCourseOpen: false
     }
 
-    courseNameChanged = (e) => {
+    addCourseClicked = () => {
 
-        this.setState({ name: e.target.value });
-    }
-
-    addHole = (hole) => {
-
-        this.setState((state) => {
-
-            const holes = [...state.holes, hole];
-            return { holes };
-        });
-    }
-
-    addCourseButtonClicked = () => {
-
-        this.props.saveCourse(this.state);
-        this.setState({ ...courseData });
-    }
-
-    getNewHole = () => {
-
-        return { ...holeData, holeNr: this.state.holes.length === 0 ? 1 : this.state.holes.length + 1 };
+        this.setState((state) => ({
+            ...state,
+            addCourseOpen: !state.addCourseOpen,
+            courseListOpen: true
+        }));
     }
 
     render () {
 
-        return <fieldset className="f-fieldset">
-            <label className="f-label">
-                <span className="f-label-text">course name</span>
-                <input
-                    className="f-input"
-                    type="text"
-                    onChange={ this.courseNameChanged }
-                    placeholder="course name"
-                    value={ this.state.name } />
-            </label>
-            { this.state.holes.map((hole, idx) => <HoleEditComponent key={ idx } hole={ hole }/>) }
-            { this.state.holes.length < 18 && <HoleEditComponent hole={ this.getNewHole() } addHole={ this.addHole }/> }
-            <button disabled={ !this.state.name || this.state.name.length === 0 } onClick={ this.addCourseButtonClicked } className="btn--action wide">Add</button>
-        </fieldset>;
+        const { } = this.props;
+
+        return <React.Fragment>
+            <h2 className="header--action">
+                <span className="header--action__text">Courses</span>
+                <button
+                    className="btn--action f-btn--knob btn--add"
+                    onClick={ this.addCourseClicked }><div className="btn--action__label">+</div></button>
+            </h2>
+            { this.state.addCourseOpen && <EditCourseContainer /> }
+            <CourseListContainer />
+        </React.Fragment>;
     }
 }
+
+export default AddCourseComponent;

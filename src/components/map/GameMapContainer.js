@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import {
-    saveClub
-} from 'actions/clubActionCreators';
+// import {
+// } from 'actions/appActionCreators';
 
-import AddClubComponent from 'components/club/AddClubComponent';
+import GameMapComponent from './GameMapComponent';
 
 const mapStateToProps = (state, ownProps) => {
 
-    return {
+    const { gameHoles } = state;
 
+    return {
+        gameHoles
     };
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-    saveClub
-}, dispatch))(AddClubComponent);
+}, dispatch))(GameMapComponent);

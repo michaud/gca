@@ -10,7 +10,8 @@ module.exports = {
     },
     devtool: 'eval-source-map',
     devServer: {
-        stats: 'errors-only'
+        stats: 'errors-only',
+        historyApiFallback: true
     },
 
     entry: ['babel-polyfill',

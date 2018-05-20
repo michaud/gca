@@ -196,21 +196,15 @@ const gameHolesData = [{
 }];
 
 export const gameData = {
+    id: undefined,
     name: '',
-    gameDate: undefined,
-    bag: bagData,
-    playingHandicap: undefined,
-    handicap: undefined,
-    players: {
-        player: {
-            name: undefined,
-            exactHandicap: undefined
-        },
-        marker: {
-            name: undefined,
-            exactHandicap: undefined
-        }
+    gameDateTime: undefined,
+    bag: undefined,
+    player: {
+        name: undefined,
+        exactHandicap: undefined
     },
+    marker: undefined,
     course: undefined
 };
 
@@ -325,7 +319,7 @@ const appData = {
 };
 /* eslint-enable no-unused-vars */
 
-const markersData = [{ ...playerData, firstName: 'plop' }];
+const markersData = [];//{ ...playerData, firstName: 'plop' }
 
 export const INITIAL_APP_STATE = appData;
 export const INITIAL_CLUBS_STATE = clubsData;

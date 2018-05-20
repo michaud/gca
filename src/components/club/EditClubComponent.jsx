@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { clubData } from 'reducers/initialStates';
 
-class AddClubComponent extends Component {
+class EditClubComponent extends Component {
 
     state = {
         name: '',
@@ -51,9 +51,9 @@ class AddClubComponent extends Component {
                     <option value="driver">Driver</option>
                 </select>
             </label>
-            <button disabled={ this.state.name.length === 0 } onClick={ this.addClubButtonClicked } className="btn--action wide">Add</button>
+            <button disabled={ this.state.name.length === 0 } onClick={ this.addClubButtonClicked } className="btn--action wide"><div class="btn--action__label">Add</div></button>
         </fieldset>;
     }
 }
 
-export default AddClubComponent;
+export default EditClubComponent;

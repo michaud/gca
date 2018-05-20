@@ -1,5 +1,9 @@
 .btn--action {
 
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
     padding: 0 .5rem;
     min-height: 4rem;
     border-radius: 0;
@@ -21,6 +25,9 @@
     } 
 }
 
+.btn--action__label {
+    flex: 1
+}
 .btn--trail {
     margin-left: 1rem;
 }

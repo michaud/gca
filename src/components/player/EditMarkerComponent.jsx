@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { playerData } from 'reducers/initialStates';
 
-class AddMarkerComponent extends Component {
+class EditMarkerComponent extends Component {
 
     state = {
         firstName: '',
@@ -59,9 +59,9 @@ class AddMarkerComponent extends Component {
                     placeholder="playing handicap"
                     value={ this.state.handicap } />
             </label>
-            <button disabled={ this.state.firstName.length === 0 } onClick={ this.addMarkerButtonClicked } className="btn--action wide">Add</button>
+            <button disabled={ this.state.firstName.length === 0 } onClick={ this.addMarkerButtonClicked } className="btn--action wide"><div class="btn--action__label">Add</div></button>
         </fieldset>;
     }
 }
 
-export default AddMarkerComponent;
+export default EditMarkerComponent;

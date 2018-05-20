@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import {
-    saveMarker
-} from 'actions/markerActionCreators';
+// import {
+// } from 'actions/appActionCreators';
 
-import AddMarkerComponent from './AddMarkerComponent';
+import CourseListComponent from './CourseListComponent';
 
 const mapStateToProps = (state, ownProps) => {
 
+    const { courses } = state;
+
     return {
+        courses
     };
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-    saveMarker
-}, dispatch))(AddMarkerComponent);
+}, dispatch))(CourseListComponent);

@@ -12,15 +12,21 @@ export const strokeAdded = (club) => (dispatch, getState) => {// eslint-disable-
     dispatch(saveStrokeLocation(club));
 };
 
-export const startingGame = (newGameData) => (dispatch, getState) => {
+export const startingGame = ({
+    gameDateTime,
+    gameName,
+    markerPlayingHandicap,
+    playerPlayingHandicap,
+    selectedCourse,
+    selectedMarker
+}) => (dispatch, getState) => {
 
-    let game;
-    let course;
-    let marker = newGameData.selectedMarker;
+    const { courses, markers, player, bag } = getState();
 
-    const { courses, markers, player } = getState();
+    let course, marker;
+    let game = { ...gameData };
 
-    if(newGameData.selectedCourse === -1) {
+    if(selectedCourse === -1) {
 
         course = {
             ...courseData,
@@ -29,29 +35,30 @@ export const startingGame = (newGameData) => (dispatch, getState) => {
 
     } else {
 
-        course = { ...courses.find((targetCourse) => newGameData.selectedCourse === targetCourse.id) };
+        course = { ...courses.find((targetCourse) => selectedCourse === targetCourse.id) };
     }
 
-    if(marker !== -1) {
+    if(selectedMarker !== -1) {
 
         marker = {
-            ...markers.find((targetMarker) => newGameData.selectedMarker === targetMarker.id),
-            markerPlayingHandicap: newGameData.markerPlayingHandicap
+            ...markers.find((targetMarker) => selectedMarker === targetMarker.id),
+            markerPlayingHandicap: markerPlayingHandicap
         };
-
     }
 
     game = {
         ...gameData,
-        ...newGameData,
+        name: gameName,
+        gameDateTime,
         id: cuid(),
         course,
         marker,
         player: {
             ...player,
-            playerPlayingHandicap: newGameData.playerPlayingHandicap
-        }
+            playerPlayingHandicap
+        },
+        bag: { ...bag }
     };
-    console.log('game: ', game);
+
     dispatch(startGame(game));
 };
