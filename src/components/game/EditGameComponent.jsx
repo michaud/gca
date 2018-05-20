@@ -10,79 +10,10 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Redirect } from 'react-router-dom';
 
-import lightGreen from '@material-ui/core/colors/lightGreen';
+import materialDataPickerStyle from 'components/muistyles';
 
-const materialTheme = createMuiTheme({
-    overrides: {
-        MuiPickersToolbar: {
-            toolbar: {
-                background: 'linear-gradient(171deg, rgb(85, 177, 0) 0%, rgb(55, 116, 0) 100%)',
-                color: 'white'
-            }
-        },
-        MuiPickersToolbarButton: {
-            toolbarBtn: {
-                fontFamily: '"Assistant", sans-serif !important',
-                textTransform: 'lowercase',
-                fontWeight: 'bold'
-            }
-        },
-        MuiPickersCalendarHeader: {
-            switchHeader: {
-                color: 'white'
-            },
-            dayLabel: {
-                color: 'purple'
-            }
-        },
-        MuiPickersClock: {
-            clock: {
-                backgroundColor: 'rgb(247, 241, 217)'
-            },
-            pin: {
-                backgroundColor: 'rgb(67,141,0)'
-            }
-        },
-        MuiPickersClockPointer: {
-            pointer: {
-                backgroundColor: 'rgb(67,141,0)'
-            },
-            thumb: {
-                borderColor: 'rgb(67,141,0)',
-                width: '1px',
-                height: '1px',
-                borderWidth: '16px'
-            }
-        },
-        MuiPickersDay: {
-            day: {
-                color: 'black',
-                fontSize: '1rem'
-            },
-            selected: {
-                backgroundColor: 'rgb(67,141,0)',
-                fontSize: '1.2rem',
-                fontFamily: '"Assistant", sans-serif !important',
-                textTransform: 'lowercase',
-                fontWeight: 'bold',
-                color: 'white'
-            },
-            current: {
-                color: lightGreen['900']
-            }
-        },
-        MuiPickersModal: {
-            dialogAction: {
-                color: 'white',
-                background: 'linear-gradient(171deg, rgb(85, 177, 0) 0%, rgb(55, 116, 0) 100%)',
-                fontSize: '1.2rem',
-                fontFamily: '"Assistant", sans-serif !important',
-                textTransform: 'lowercase',
-                fontWeight: 'bold'
-            }
-        }
-    }
-});
+const materialTheme = createMuiTheme(materialDataPickerStyle);
+
 class EditGameComponent extends Component {
 
     dateTime = (strDateTime) => moment(strDateTime).format('YYYY-MM-DDThh:mm')
@@ -269,23 +200,23 @@ class EditGameComponent extends Component {
                         <input
                             className="f-input-field f-input"
                             type="text"
-                            onChange={this.markerPlayingHandicapChanged}
+                            onChange={ this.markerPlayingHandicapChanged }
                             placeholder="marker playing handicap"
-                            value={this.state.markerPlayingHandicap} />
+                            value={ this.state.markerPlayingHandicap } />
                     </label>
                 }
                 <label className="f-label">
                     <span className="f-label-text">Game date &amp; time</span>
-                    <MuiPickersUtilsProvider utils={MomentUtils}>
-                        <MuiThemeProvider theme={materialTheme}>
+                    <MuiPickersUtilsProvider utils={ MomentUtils }>
+                        <MuiThemeProvider theme={ materialTheme }>
                             <DateTimePicker
                                 className="mui__f-box-input-container"
-                                ampm={false}
+                                ampm={ false }
                                 leftArrowIcon={ <ChevronLeftIcon/> }
                                 rightArrowIcon={ <ChevronRightIcon/> }
-                                showTabs={false}
-                                value={this.state.gameDateTime}
-                                onChange={this.gameDateTimeChanged} />
+                                showTabs={ false }
+                                value={ this.state.gameDateTime }
+                                onChange={ this.gameDateTimeChanged } />
                         </MuiThemeProvider>
                     </MuiPickersUtilsProvider>
                 </label>

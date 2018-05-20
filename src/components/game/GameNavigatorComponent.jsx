@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const GameNavigatorComponent = ({ games }) => {
+class GameNavigatorComponent extends Component {
 
-    return <div>Game</div>;
-};
+    componentDidMount () {
+
+        const { match: { params: { gameid }}} = this.props;
+        console.log('gameid: ', gameid);
+
+    }
+
+    render () {
+
+        return <div>Game</div>;
+    }
+}
 
 export default GameNavigatorComponent;

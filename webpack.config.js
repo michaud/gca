@@ -5,7 +5,7 @@ var autoprefixer = require('autoprefixer');
 
 module.exports = {
 
-    entry: ['babel-polyfill',
+    entry: ['babel-polyfill', 'react-hot-loader/patch',
         './src/index'
     ],
     output: {
