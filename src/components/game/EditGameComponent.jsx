@@ -115,8 +115,10 @@ class EditGameComponent extends Component {
 
     componentDidMount () {
 
+        console.log('this.props.game: ', this.props.game);
         this.setState((state) => ({
             ...state,
+            ...this.props.game,
             playerPlayingHandicap: this.props.player.handicap
         }));
     }
@@ -142,7 +144,7 @@ class EditGameComponent extends Component {
         } = this.props;
 
         if(this.state.startGame) {
-            return <Redirect to={ `/game/${ 1 }` }/>;
+            return <Redirect to={ `/game/${ this.props.game.id }` }/>;
         }
         return <React.Fragment>
             <fieldset className="f-fieldset">
