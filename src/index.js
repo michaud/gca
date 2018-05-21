@@ -22,7 +22,7 @@ const render = App => {
                 <React.Fragment>
                     <Switch>
                         <Route exact path="/" component={ SplashScreen } />
-                        <Route path="/settings/" component={ AppContainer } />
+                        <Route path="/settings" component={ AppContainer } />
                         <Route path="/game/:gameid" component={ GameNavigatorContainer } />
                     </Switch>
                 </React.Fragment>

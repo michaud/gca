@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ClubListContainer from 'components/club/ClubListContainer';
 import EditClubContainer from 'components/club/EditClubContainer';
 import ScreenHeader from 'components/app/ScreenHeader';
+import AddButtonComponent from 'components/app/AddButtonComponent';
 
 class ClubsComponent extends Component {
 
@@ -35,11 +36,7 @@ class ClubsComponent extends Component {
 
         return <React.Fragment>
             <ScreenHeader label="Clubs">
-                <button
-                    className="btn--action f-btn--knob btn--add"
-                    onClick={ this.addClubClicked }>
-                    <div className="btn--action__label">+</div>
-                </button>
+                <AddButtonComponent onClick={ this.addClubClicked }/>
             </ScreenHeader>
             { this.state.addClubOpen && <EditClubContainer/> }
             { clubs.length > 0 && <ClubListContainer/> }

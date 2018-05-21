@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 import EditClubContainer from 'components/club/EditClubContainer';
 import EditBagClubListContainer from 'components/bag/EditBagClubListContainer';
+import ScreenHeader from 'components/app/ScreenHeader';
+import AddButtonComponent from 'components/app/AddButtonComponent';
 
-const EditBagComponent = () => {
+export default class EditBagComponent extends Component {
 
-    return <React.Fragment>
-        <EditClubContainer/>
-        <EditBagClubListContainer/>
-    </React.Fragment>;
-};
+    state = {
+        addClubOpen: false
+    }
 
-export default EditBagComponent;
+    addClubClicked = () => {
+
+        this.setState((state) => ({
+            ...state,
+            addClubOpen: !state.addClubOpen
+        }));
+    }
+
+    render () {
+        return <React.Fragment>
+            <ScreenHeader label="What's in the bag"/>
+            <EditBagClubListContainer/>
+            <ScreenHeader label="Add club">
+                <AddButtonComponent onClick={ this.addClubClicked }/>
+            </ScreenHeader>
+            { this.state.addClubOpen && <EditClubContainer/> }
+        </React.Fragment>;
+    }
+}
+

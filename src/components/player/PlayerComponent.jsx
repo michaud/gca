@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ScreenHeader from 'components/app/ScreenHeader';
+
 class PlayerComponent extends Component {
 
     state = {

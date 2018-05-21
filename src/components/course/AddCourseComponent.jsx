@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import CourseListContainer from 'components/course/CourseListContainer';
 import EditCourseContainer from 'components/course/EditCourseContainer';
 import ScreenHeader from 'components/app/ScreenHeader';
+import AddButtonComponent from 'components/app/AddButtonComponent';
 
 class AddCourseComponent extends Component {
 
@@ -25,10 +26,7 @@ class AddCourseComponent extends Component {
 
         return <React.Fragment>
             <ScreenHeader label="Courses">
-                <button
-                    className="btn--action f-btn--knob btn--add"
-                    onClick={ this.addCourseClicked }><div className="btn--action__label">+</div>
-                </button>
+                <AddButtonComponent onClick={ this.addCourseClicked }/>
             </ScreenHeader>
             { this.state.addCourseOpen && <EditCourseContainer /> }
             <CourseListContainer />

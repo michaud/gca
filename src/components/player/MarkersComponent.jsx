@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MarkerListContainer from 'components/player/MarkerListContainer';
 import EditMarkerContainer from 'components/player/EditMarkerContainer';
 import ScreenHeader from 'components/app/ScreenHeader';
+import AddButtonComponent from 'components/app/AddButtonComponent';
 
 class MarkersComponent extends Component {
 
@@ -39,12 +40,8 @@ class MarkersComponent extends Component {
         const { } = this.props;
 
         return <React.Fragment>
-            <ScreenHeader label="Courses">
-                <button
-                    className="btn--action f-btn--knob btn--add"
-                    onClick={ this.addMarkerOpenClicked }>
-                    <div className="btn--action__label">+</div>
-                </button>
+            <ScreenHeader label="Markers">
+                <AddButtonComponent onClick={ this.addMarkerOpenClicked }/>
             </ScreenHeader>
             { this.state.addMarkerOpen &&
                 <EditMarkerContainer/>
