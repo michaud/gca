@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import MarkersComponent from './MarkersComponent';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
     const { markers } = state;
 

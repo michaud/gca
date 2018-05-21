@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 
 import EditBagClubListComponent from 'components/bag/EditBagClubListComponent';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
     const {
         clubs,

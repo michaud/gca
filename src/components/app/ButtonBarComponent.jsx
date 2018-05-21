@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { NavLink } from 'react-router-dom';
 import slide from 'components/transitions/slide';
-import scale from 'components/transitions/scale';
 
 const uiDefaultState = {
     addCourseOpen: false,

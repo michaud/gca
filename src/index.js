@@ -15,7 +15,7 @@ const store = configureStore();
 
 const app = document.getElementById('app-container');
 
-const render = App => {
+const render = () => {
     ReactDOM.render(<HotLoaderContainer>
         <Provider store={store}>
             <Router>
@@ -32,7 +32,7 @@ const render = App => {
     app);
 };
 
-render(AppContainer);
+render();
 
 if (module.hot) {
     module.hot.accept('./components/app/AppContainer', () => render(AppContainer));

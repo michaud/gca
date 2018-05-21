@@ -16,7 +16,7 @@ export default ({ transition = '', duration = 0, pageKey, children }) => {
             <div>{children}</div>
         </CSSTransition>
     </TransitionGroup>;
-}
+};
 
 export { default as slide } from './slide';
 export { default as scale } from './scale';

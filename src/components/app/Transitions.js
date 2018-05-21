@@ -15,4 +15,4 @@ export default ({ transition = '', duration = 0, pageKey, children }) => (
       <div>{ children }</div>
     </CSSTransition>
   </TransitionGroup>
-)
+);

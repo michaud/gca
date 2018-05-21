@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import ClubsComponent from './ClubsComponent';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
     const { clubs } = state;
 

@@ -44,8 +44,8 @@ export default function (state = INITIAL_GAME_HOLES_STATE, action) {
         }
 
         default: {
-        
+
             return state;
         }
     }
-};
+}

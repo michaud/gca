@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// import {
-// } from 'actions/appActionCreators';
-
 import MarkerListComponent from './MarkerListComponent';
 
 const mapStateToProps = (state) => {

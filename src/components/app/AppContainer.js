@@ -5,23 +5,11 @@ import {
     loadAppData
 } from 'actions/appActions';
 
-import { createCourse, saveCourse } from 'actions/gameActions';
-
-import { showStartup } from 'selectors';
-
 import AppComponent from './AppComponent';
 
 const mapStateToProps = (state) => {
 
-    const {
-        gameHoles,
-        games
-    } = state;
-
     return {
-        gameHoles,
-        games,
-        showStartup: showStartup(state)
     };
 };
 

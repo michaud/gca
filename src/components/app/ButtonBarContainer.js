@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import ButtonBarComponent from 'components/app/ButtonBarComponent';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
     const {
         courses,

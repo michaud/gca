@@ -1,12 +1,12 @@
 import { SAVE_STROKE_LOCATION_DATA } from './actionTypes';
 
-export const saveStrokeLocationData = (geoData) => {
+export const saveStrokeLocationData = (geoData) => ({
 
     type: SAVE_STROKE_LOCATION_DATA,
     geoData
-}
+});
 
-export const saveStrokeLocation = (club) => (dispatch, getState) => {
+export const saveStrokeLocation = (club) => (dispatch) => {
 
     if(navigator && navigator.geolocation) {
 

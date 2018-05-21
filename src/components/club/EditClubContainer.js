@@ -7,7 +7,7 @@ import {
 
 import EditClubComponent from 'components/club/EditClubComponent';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
     const { clubs } = state;
 
