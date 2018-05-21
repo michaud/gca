@@ -18,7 +18,7 @@ const app = document.getElementById('app-container');
 const render = () => {
     ReactDOM.render(<HotLoaderContainer>
         <Provider store={store}>
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <React.Fragment>
                     <Switch>
                         <Route exact path="/" component={ SplashScreen } />
