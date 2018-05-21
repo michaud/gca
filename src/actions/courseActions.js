@@ -1,19 +1,6 @@
-export const createCourse = () => {
+import { ADD_COURSE } from 'actions/actionTypes';
 
-    return (dispatch, getState) => {
-
-    }
-
-//     {
-//     name: "coursename",
-//     holes: [],
-//     slope: undefined
-// }
-}
-
-export const saveCourse = () => {
-
-    return (dispatch, getState) => {
-        
-    }
-}
+export const addCourse = (course) => ({
+    type: ADD_COURSE,
+    course
+});

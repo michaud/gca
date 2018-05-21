@@ -1,17 +1,39 @@
-import {
-    INIT_APP
-} from './../actions/actionTypes';
+import * as type from './../actions/actionTypes';
+
+import cuid from 'cuid';
 
 import { INITIAL_CLUBS_STATE } from './initialStates';
 
 export default function (state = INITIAL_CLUBS_STATE, action) {
+
     switch (action.type) {
-        case INIT_APP:
 
-            return state;
+        case type.ADD_CLUB: {
 
-        default:
-        
+            const { club } = action;
+
+            return [
+                ...state,
+                { ...club, id: cuid() }
+            ];
+        }
+
+        case type.ADD_CLUB_TO_BAG: {
+
+            const { club } = action;
+
+            return state.map((targetClub) => club.id === targetClub.id ? { ...targetClub, inBag: true } : targetClub);
+        }
+
+        case type.REMOVE_CLUB_FROM_BAG: {
+
+            const { club } = action;
+
+            return state.map((targetClub) => club.id === targetClub.id ? { ...targetClub, inBag: false } : targetClub);
+        }
+
+        default: {
             return state;
+        }
     }
 }

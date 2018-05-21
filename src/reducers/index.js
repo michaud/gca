@@ -6,6 +6,8 @@ import gameHoles from './gameHolesReducer';
 import games from './gamesReducer';
 import bag from './bagReducer';
 import courses from './coursesReducer';
+import player from './playerReducer';
+import markers from './markersReducer';
 
 const rootReducer = combineReducers({
     app,
@@ -13,7 +15,9 @@ const rootReducer = combineReducers({
     clubs,
     gameHoles,
     games,
-    bag
+    bag,
+    player,
+    markers
 });
 
 export default rootReducer;

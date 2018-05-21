@@ -1,29 +1,28 @@
 var path = require('path');
-var webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack')
+var HtmlWebPackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: ['babel-polyfill',
+
+    entry: ['babel-polyfill', 'react-hot-loader/patch',
         './src/index'
     ],
     output: {
         path: path.join(__dirname, 'build/js'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
+        new HtmlWebPackPlugin({
+            template: './index-template.html',
+            hash: false,
+            title: 'NL-ix',
+            filename: './index.html'
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: true
-            }
-        }),
-        new CopyWebpackPlugin([{ from: 'index.html', to: path.join(__dirname, 'build/index.html') }],
-            { copyUnmodified: true })
+        new CleanWebpackPlugin(['build']),
+        new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/)
     ],
     module: {
         rules: [{
@@ -33,17 +32,21 @@ module.exports = {
         },
         {
             test: /\.css$/,
-            use: ["style-loader", "css-loader"]
+            use: ['style-loader', 'css-loader']
         },
         {
             test: /\.json$/,
-            use: "file-loader"
+            use: 'file-loader'
         },
         {
             test: /\.scss$/,
-            use: ['style-loader','css-loader','sass-loader']
-            }
+            use: ['style-loader', 'css-loader', 'sass-loader']
+        }
         ]
+    },
+    devServer: {
+        port: 3000,
+        historyApiFallback: true
     },
     resolve: {
         extensions: ['.scss', '.js', '.jsx', '.json'],
@@ -56,7 +59,8 @@ module.exports = {
             'scss': path.resolve(__dirname, 'src/scss/'),
             'components': path.resolve(__dirname, 'src/components/'),
             'actions': path.resolve(__dirname, 'src/actions/'),
-            'reducers': path.resolve(__dirname, 'src/reducers/')
+            'reducers': path.resolve(__dirname, 'src/reducers/'),
+            'selectors': path.resolve(__dirname, 'src/selectors/')
         }
     }
 };

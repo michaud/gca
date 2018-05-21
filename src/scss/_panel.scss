@@ -1,38 +1,21 @@
-.panel--edit {
-
-    height: 100vh;
-    display: table;
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+  margin-top: -3rem;
+    transform: translate(0,-100px);
+    display: block;
+    position: absolute;
+    top: 0;
     width: 100%;
-
-    &.collapsed {
-
-        height: auto;
-    }
+    
 }
 
-.panel--edit__btn {
-
-    display: table-row;
-}
-
-.panel--edit__content-container {
-
-    display: table-row;
-
-    &.hidden {
-
-        display: none;
-    }
-}
-
-.panel--edit__content {
-
-    display: table-cell;
-    height: 100%;
-    vertical-align: top;
-
-    &.collapsed {
-
-        height: auto;
-    }
+.fade-enter.fade-enter-active {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  opacity: 1;
+  transform: translate(0,0);
+  transition: transform 3000ms, opacity 250ms ease-in;
 }

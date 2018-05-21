@@ -1,11 +1,8 @@
-export const loadAppData = () => {
+export const loadAppData = () => (dispatch, getState) => {// eslint-disable-line no-unused-vars
 
-    return (dispatch,getState) => {
-
-        if ("geolocation" in navigator) {
-        /* geolocation is available */
-        } else {
-        /* geolocation IS NOT available */
-        }
+    if ('geolocation' in navigator) {
+    /* geolocation is available */
+    } else {
+    /* geolocation IS NOT available */
     }
 };

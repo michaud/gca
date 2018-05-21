@@ -1,9 +1,6 @@
-import { saveStrokeLocation } from './geoActions';
+import { START_GAME } from 'actions/actionTypes';
 
-export const strokeAdded = (club) => {
-
-    return (dispatch, getState) => {
-
-        dispatch(saveStrokeLocation(club));
-    }
-};
+export const startGame = (gameData) => ({
+    type: START_GAME,
+    gameData
+});
