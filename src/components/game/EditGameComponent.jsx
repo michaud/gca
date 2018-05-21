@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import moment from 'moment';
+import { moment } from 'moment/moment';
 import EditCourseContainer from 'components/course/EditCourseContainer';
 import EditMarkerContainer from 'components/player/EditMarkerContainer';
 import MomentUtils from 'material-ui-pickers/utils/moment-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import { DateTimePicker } from 'material-ui-pickers';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { DateTimePicker } from 'material-ui-pickers/DateTimePicker';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Redirect } from 'react-router-dom';

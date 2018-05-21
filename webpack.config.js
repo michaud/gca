@@ -1,5 +1,6 @@
 var path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack')
 var HtmlWebPackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
@@ -20,7 +21,8 @@ module.exports = {
             title: 'NL-ix',
             filename: './index.html'
         }),
-        new CleanWebpackPlugin(['build'])
+        new CleanWebpackPlugin(['build']),
+        new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/)
     ],
     module: {
         rules: [{

@@ -6,7 +6,8 @@
     "scripts": {
         "start": "webpack-dev-server --mode development --hot",
         "dev-prod": "webpack -p --debug --progress --profile --config webpack.dev-prod.config.js  > compilation.txt",
-        "build": "webpack -p --debug --progress --profile --config webpack.config.js"
+        "build": "webpack -p --debug --progress --profile --config webpack.config.js",
+        "stats": "webpack -p --config webpack.config.js --json > stats.json"
     },
     "repository": {
         "type": "git",
