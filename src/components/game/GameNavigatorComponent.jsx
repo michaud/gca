@@ -5,7 +5,6 @@ class GameNavigatorComponent extends Component {
     componentDidMount () {
 
         const { match: { params: { gameid }}} = this.props;
-        console.log('gameid: ', gameid);
 
     }
 

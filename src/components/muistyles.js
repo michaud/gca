@@ -1,5 +1,3 @@
-import lightGreen from '@material-ui/core/colors/lightGreen';
-
 const materialDataPickerStyle = {
 
     overrides: {
@@ -57,7 +55,7 @@ const materialDataPickerStyle = {
                 color: 'white'
             },
             current: {
-                color: lightGreen['900']
+                color: 'white'
             }
         },
         MuiPickersModal: {
