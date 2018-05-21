@@ -59,7 +59,12 @@ class EditMarkerComponent extends Component {
                     placeholder="playing handicap"
                     value={ this.state.handicap } />
             </label>
-            <button disabled={ this.state.firstName.length === 0 } onClick={ this.addMarkerButtonClicked } className="btn--action wide"><div class="btn--action__label">Add</div></button>
+            <button
+                disabled={ this.state.firstName.length === 0 }
+                onClick={ this.addMarkerButtonClicked }
+                className="btn--action wide">
+                <div className="btn--action__label">Add</div>
+            </button>
         </fieldset>;
     }
 }

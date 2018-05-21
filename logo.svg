@@ -1,0 +1,21 @@
+<svg height="1000" width="1600" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="#fff" height="1002" id="canvas_background" width="1602" x="-1" y="-1"/>
+  <g height="100%" width="100%">
+    <rect display="none" fill="url(#gridpattern)" height="0" id="canvasGrid" overflow="visible" stroke-width="0" width="0" x="0" y="0"/>
+  </g>
+  <g id="svg_34" stroke="#000" stroke-width="0">
+    <path d="M1648.3-30.4l-838 488.6v542.6H1650l-1.7-1031.2z" fill="#aaff56" fill-opacity=".3" id="svg_24" stroke-opacity="null"/>
+    <path d="M-50.4-30.4l861.6 488.6v542.6h-863l1.4-1031.2z" fill="#00bf00" fill-opacity=".3" id="svg_22" stroke-opacity="null"/>
+    <path d="M-55.3-29.6l1705.7-1.9c.5 1.9-841.2 488.7-841.2 488.7L-55.3-29.6z" fill="#d4ffaa" fill-opacity=".3" id="svg_18" stroke-opacity="null"/>
+    <ellipse cx="808.8" cy="461.8" fill="#fff" id="svg_14" rx="102.2" ry="102.2"/>
+    <ellipse cx="616.1" cy="352.4" fill="#fff" id="svg_8" rx="102.2" ry="102.2"/>
+    <ellipse cx="999.4" cy="569.2" fill="#fff" id="svg_7" rx="102.2" ry="102.2"/>
+    <ellipse cx="808.8" cy="245.1" fill="#fff" id="svg_6" rx="102.2" ry="102.2"/>
+    <ellipse cx="616.1" cy="571.5" fill="#fff" id="svg_5" rx="102.2" ry="102.2"/>
+    <ellipse cx="999.4" cy="352.4" fill="#fff" id="svg_1" rx="102.2" ry="102.2"/>
+    <ellipse cx="808.8" cy="683.2" fill="#fff" id="svg_11" rx="102.2" ry="102.2"/>
+    <path d="M1648.3-30.4l-838 488.6v542.6H1650l-1.7-1031.2z" fill="#aaff56" fill-opacity=".3" id="svg_31" stroke-opacity="null"/>
+    <path d="M-53.4-30.4l864.6 488.6v542.6h-863L-55.3-30.4z" fill="#00bf00" fill-opacity=".3" id="svg_32" stroke-opacity="null"/>
+    <path d="M-57.5-28.1l1705.7-1.3-837.4 487.7L-57.5-28.1z" fill="#d4ffaa" fill-opacity=".3" id="svg_33" stroke-opacity="null"/>
+  </g>
+</svg>

@@ -38,7 +38,7 @@ class ClubsComponent extends Component {
                 <button
                     className="btn--action f-btn--knob btn--add"
                     onClick={ this.addClubClicked }>
-                    <div class="btn--action__label">+</div>
+                    <div className="btn--action__label">+</div>
                 </button>
             </h2>
             { this.state.addClubOpen && <EditClubContainer/> }

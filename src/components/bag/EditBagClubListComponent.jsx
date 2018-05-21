@@ -19,7 +19,7 @@ class EditBagClubListComponent extends Component {
             return <li className="edit-club-list__item" key={ idx }>
                 <div className="edit-club-list__club-label">{ club.name }</div>
                 <button className="btn--action f-btn--knob" onClick={ () => this.removeClubFromBag(club) }>
-                    <div class="btn--action__label">&gt;</div>
+                    <div className="btn--action__label">&gt;</div>
                 </button>
             </li>;
         });
@@ -29,7 +29,7 @@ class EditBagClubListComponent extends Component {
         return clubs.map((club, idx) => {
             return <li className="edit-club-list__item" key={ idx }>
                 <button disabled={ club.inBag } className="f-btn--knob btn--action" onClick={ () => this.addClubToBag(club) }>
-                    <div class="btn--action__label">&lt;</div>
+                    <div className="btn--action__label">&lt;</div>
                 </button>
                 <div className="edit-club-list__club-label">{ club.name }</div>
             </li>;

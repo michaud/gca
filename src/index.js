@@ -9,6 +9,10 @@ import './scss/_style.scss';
 
 import configureStore from './store/configureStore';
 import GameNavigatorContainer from 'components/game/GameNavigatorContainer';
+import SplashScreen from 'components/app/SplashScreen';
+import createHistory from 'history/createBrowserHistory'
+
+const history = createHistory();
 
 const store = configureStore();
 
@@ -19,7 +23,7 @@ const render = App => {
         <Provider store={store}>
             <Router>
                 <React.Fragment>
-                    <Route path="/" component={ App } />
+                    <Route path="/" component={ AppContainer } />
                     <Route exact path="/game/:gameid" component={ GameNavigatorContainer } />
                 </React.Fragment>
             </Router>

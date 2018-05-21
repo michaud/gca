@@ -51,7 +51,12 @@ class EditClubComponent extends Component {
                     <option value="driver">Driver</option>
                 </select>
             </label>
-            <button disabled={ this.state.name.length === 0 } onClick={ this.addClubButtonClicked } className="btn--action wide"><div class="btn--action__label">Add</div></button>
+            <button
+                disabled={ this.state.name.length === 0 }
+                onClick={ this.addClubButtonClicked }
+                className="btn--action wide">
+                <div className="btn--action__label">Add</div>
+            </button>
         </fieldset>;
     }
 }

@@ -197,7 +197,7 @@ const gameHolesData = [{
 
 export const gameData = {
     id: undefined,
-    name: '',
+    gameName: '',
     gameDateTime: undefined,
     bag: undefined,
     player: {
@@ -209,7 +209,7 @@ export const gameData = {
 };
 
 const gamesData = [{
-    name: 'gamename',
+    gameName: 'gamename',
     gameDate: undefined,
     bag: bagData,
     playingHandicap: undefined,

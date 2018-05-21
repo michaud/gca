@@ -14,7 +14,7 @@ export default function (state = INITIAL_GAMES_STATE, action) {
         }
 
         default: {
-        
+
             return state;
         }
     }

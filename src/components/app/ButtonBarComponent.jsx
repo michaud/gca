@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import { NavLink } from 'react-router-dom';
+import slide from 'components/transitions/slide';
+import scale from 'components/transitions/scale';
 
 const uiDefaultState = {
     addCourseOpen: false,
@@ -26,22 +28,20 @@ class ButtonBar extends Component {
 
     render () {
 
-        const { courses, clubs } = this.props;
-
-        return <div style={{ display: 'flex', position: 'fixed', bottom: 0, width: '100%' }}>
-            <NavLink className="btn--action wide" to="player">
+        return <div style={{ display: 'flex' }}>
+            <NavLink className="btn--action wide" to={{ pathname: 'player', state: slide }}>
                 <div className="btn--action__label">Player</div>
             </NavLink>
-            <NavLink className="btn--action wide" to="courses">
+            <NavLink className="btn--action wide" to={{ pathname: 'courses', state: slide }}>
                 <div className="btn--action__label">Courses</div>
             </NavLink>
-            <NavLink className="btn--action wide" to="bag">
+            <NavLink className="btn--action wide" to={{ pathname: 'bag', state: slide }}>
                 <div className="btn--action__label">Bag</div>
             </NavLink>
-            <NavLink className="btn--action wide" to="clubs">
+            <NavLink className="btn--action wide" to={{ pathname: 'clubs', state: slide }}>
                 <div className="btn--action__label">Clubs</div>
             </NavLink>
-            <NavLink className="btn--action wide" to="markers">
+            <NavLink className="btn--action wide" to={{ pathname: 'markers', state: slide }}>
                 <div className="btn--action__label">Markers</div>
             </NavLink>
         </div>;

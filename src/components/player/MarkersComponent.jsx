@@ -42,7 +42,9 @@ class MarkersComponent extends Component {
                 <span className="header--action__text">Markers</span>
                 <button
                     className="btn--action f-btn--knob btn--add"
-                    onClick={ this.addMarkerOpenClicked }><div class="btn--action__label">+</div></button>
+                    onClick={ this.addMarkerOpenClicked }>
+                    <div className="btn--action__label">+</div>
+                </button>
             </h2>
             { this.state.addMarkerOpen &&
                 <EditMarkerContainer/>

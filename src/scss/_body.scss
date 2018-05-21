@@ -2,7 +2,12 @@
     box-sizing: border-box;
 }
 
+html {
+    position: relative;
+}
+
 body {
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -11,8 +16,15 @@ body {
     font-size: 1.125rem;
     color: rgba(0,0,0, .9);
     background: rgb(247, 241, 217);
+    display: flex;
+    flex-direction: row;
 }
 
+#app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 input, textarea, button {
 
     font-family: 'Assistant', sans-serif!important;
