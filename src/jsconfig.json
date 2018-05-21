@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "target": "ES6",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "components/*": ["./components/*"],
+            "scss/*": ["./scss/*"],
+            "component/*":["./components/*"],
+            "actions/*":["./actions/*"],
+            "reducers/*":["./reducers/*"],
+            "selectors/*":["./selectors/*"]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]        
+}
