@@ -11,6 +11,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Redirect } from 'react-router-dom';
 
 import materialDataPickerStyle from 'components/muistyles';
+import ScreenHeader from 'components/app/ScreenHeader';
 
 const materialTheme = createMuiTheme(materialDataPickerStyle);
 
@@ -115,7 +116,6 @@ class EditGameComponent extends Component {
 
     componentDidMount () {
 
-        console.log('this.props.game: ', this.props.game);
         this.setState((state) => ({
             ...state,
             ...this.props.game,
@@ -147,6 +147,7 @@ class EditGameComponent extends Component {
             return <Redirect to={ `/game/${ this.props.game.id }` }/>;
         }
         return <React.Fragment>
+            <ScreenHeader label="Game"/>
             <fieldset className="f-fieldset">
                 <label className="f-label">
                     <span className="f-label-text">Game title</span>
@@ -169,7 +170,7 @@ class EditGameComponent extends Component {
                         })
                         }
                     </select>
-                    <button className="f-btn--knob btn--action btn--trail" onClick={this.addCourseClicked}>new</button>
+                    <button className="f-btn--knob btn--action btn--trail" onClick={this.addCourseClicked}><div className="btn--action__label">new</div></button>
                 </label>
             </fieldset>
             {this.state.addCourseOpen && <EditCourseContainer />}
@@ -191,7 +192,9 @@ class EditGameComponent extends Component {
                             return <option key={idx} value={marker.id}>{marker.firstName}</option>;
                         })}
                     </select>
-                    <button className="f-btn--knob btn--trail btn--action" onClick={this.addMarkerClicked}>new</button>
+                    <button className="f-btn--knob btn--trail btn--action" onClick={this.addMarkerClicked}>
+                        <div className="btn--action__label">new</div>
+                    </button>
                 </label>
             </fieldset>
             {this.state.addMarkerOpen && <EditMarkerContainer />}

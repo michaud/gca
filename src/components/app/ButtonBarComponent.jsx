@@ -29,6 +29,9 @@ class ButtonBar extends Component {
     render () {
 
         return <div style={{ display: 'flex' }}>
+            <NavLink className="btn--action f-btn--knob" to={{ pathname: '/settings/newgame', state: slide }}>
+                <div className="btn--action__label">+</div>
+            </NavLink>
             <NavLink className="btn--action wide" to={{ pathname: '/settings/games', state: slide }}>
                 <div className="btn--action__label">Games</div>
             </NavLink>
@@ -38,14 +41,11 @@ class ButtonBar extends Component {
             <NavLink className="btn--action wide" to={{ pathname: '/settings/bag', state: slide }}>
                 <div className="btn--action__label">Bag</div>
             </NavLink>
-            <NavLink className="btn--action wide" to={{ pathname: '/settings/clubs', state: slide }}>
-                <div className="btn--action__label">Clubs</div>
+            <NavLink className="btn--action wide" to={{ pathname: '/settings/players', state: slide }}>
+                <div className="btn--action__label">Players</div>
             </NavLink>
-            <NavLink className="btn--action wide" to={{ pathname: '/settings/markers', state: slide }}>
-                <div className="btn--action__label">Markers</div>
-            </NavLink>
-            <NavLink className="btn--action wide" to={{ pathname: '/settings/player', state: slide }}>
-                <div className="btn--action__label">Player</div>
+            <NavLink className="btn--action f-btn--knob" to={{ pathname: '/', state: slide }}>
+                <div className="btn--action__label">&lt;</div>
             </NavLink>
         </div>;
     }
