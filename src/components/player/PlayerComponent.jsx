@@ -25,9 +25,7 @@ class PlayerComponent extends Component {
     render () {
 
         return <React.Fragment>
-            <h2 className="header--action">
-                <span className="header--action__text">Player</span>
-            </h2>
+            <ScreenHeader label="Player"/>
             <fieldset className="f-fieldset">
                 <label className="f-label">
                     <span className="f-label-text">first name</span>

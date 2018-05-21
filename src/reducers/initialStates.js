@@ -209,22 +209,12 @@ export const gameData = {
 };
 
 const gamesData = [{
-    gameName: 'gamename',
-    gameDate: undefined,
-    bag: bagData,
-    playingHandicap: undefined,
-    handicap: undefined,
-    players: {
-        player: {
-            name: undefined,
-            exactHandicap: undefined
-        },
-        marker: {
-            name: undefined,
-            exactHandicap: undefined
-        }
-    },
-    course: { ...courseData }
+    ...gameData,
+    gameName: 'game 1'
+},
+{
+    ...gameData,
+    gameName: 'game 2'
 }];
 
 const clubsData = [/*{

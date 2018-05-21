@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ClubListContainer from 'components/club/ClubListContainer';
 import EditClubContainer from 'components/club/EditClubContainer';
+import ScreenHeader from 'components/app/ScreenHeader';
 
 class ClubsComponent extends Component {
 
@@ -33,14 +34,13 @@ class ClubsComponent extends Component {
         const { clubs } = this.props;
 
         return <React.Fragment>
-            <h2 className="header--action">
-                <span className="header--action__text">Clubs</span>
+            <ScreenHeader label="Clubs">
                 <button
                     className="btn--action f-btn--knob btn--add"
                     onClick={ this.addClubClicked }>
                     <div className="btn--action__label">+</div>
                 </button>
-            </h2>
+            </ScreenHeader>
             { this.state.addClubOpen && <EditClubContainer/> }
             { clubs.length > 0 && <ClubListContainer/> }
         </React.Fragment>;

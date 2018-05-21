@@ -14,6 +14,7 @@ import AddCourseComponent from 'components/course/AddCourseComponent';
 import ClubsContainer from 'components/club/ClubsContainer';
 import MarkersContainer from 'components/player/MarkersContainer';
 import NavigationShell from 'components/app/NavigationShellComponent';
+import GameListContainer from 'components/game/GameListContainer';
 
 injectTapEventPlugin();
 
@@ -23,19 +24,19 @@ class AppComponent extends Component {
 
         return <React.Fragment>
             <NavigationShell>
-                <Route
-            render={({ location }) => (
-            <Transitions pageKey={location.key} {...location.state}>
-                <Switch location={location}>
-                    <Route path="/newgame" render={ () => <EditGameContainer/> }/>
-                    <Route path="/player" render={ () => <PlayerContainer/> }/>
-                    <Route path="/courses" render={ () => <AddCourseComponent/> }/>
-                    <Route path="/bag" render={ () => <EditBagComponent/> }/>
-                    <Route path="/clubs" render={ () => <ClubsContainer/> }/>
-                    <Route path="/markers" render={ () => <MarkersContainer/> }/>
-                    </Switch>
-              </Transitions>
-            )}/>
+                <Route render={({ location }) => (
+                    <Transitions pageKey={location.key} {...location.state}>
+                        <Switch location={location}>
+                            <Route path="/settings/newgame" render={ () => <EditGameContainer/> }/>
+                            <Route path="/settings/player" render={ () => <PlayerContainer/> }/>
+                            <Route path="/settings/courses" render={ () => <AddCourseComponent/> }/>
+                            <Route path="/settings/bag" render={ () => <EditBagComponent/> }/>
+                            <Route path="/settings/clubs" render={ () => <ClubsContainer/> }/>
+                            <Route path="/settings/markers" render={ () => <MarkersContainer/> }/>
+                            <Route path="/settings/games" render={ () => <GameListContainer/> }/>
+                        </Switch>
+                </Transitions>
+                )}/>
             </NavigationShell>
         </React.Fragment>;
     }

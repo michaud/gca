@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import CourseListContainer from 'components/course/CourseListContainer';
 import EditCourseContainer from 'components/course/EditCourseContainer';
+import ScreenHeader from 'components/app/ScreenHeader';
 
 class AddCourseComponent extends Component {
 
@@ -23,12 +24,12 @@ class AddCourseComponent extends Component {
         const { } = this.props;
 
         return <React.Fragment>
-            <h2 className="header--action">
-                <span className="header--action__text">Courses</span>
+            <ScreenHeader label="Courses">
                 <button
                     className="btn--action f-btn--knob btn--add"
-                    onClick={ this.addCourseClicked }><div className="btn--action__label">+</div></button>
-            </h2>
+                    onClick={ this.addCourseClicked }><div className="btn--action__label">+</div>
+                </button>
+            </ScreenHeader>
             { this.state.addCourseOpen && <EditCourseContainer /> }
             <CourseListContainer />
         </React.Fragment>;
