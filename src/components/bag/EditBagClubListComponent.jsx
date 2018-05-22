@@ -48,7 +48,7 @@ class EditBagClubListComponent extends Component {
                 <h3 className="bag-header">bag</h3>
                 <h3 className="bag-header">clubs</h3>
             </div>
-            <div className="fl-row fl-spread">
+            <div className="fl-row fl-spread" style={{ marginBottom: '2rem'}}>
                     <ul className="plain-list bag-list">
                     { this.renderBagClubs(bag, clubs) }
                     </ul>
