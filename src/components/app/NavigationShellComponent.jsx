@@ -15,4 +15,3 @@ const NavigationShell = (props) => {
 };
 
 export default NavigationShell;
-    

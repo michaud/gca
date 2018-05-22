@@ -86,7 +86,9 @@ export default class HoleEditComponent extends Component {
                     placeholder="length"
                     onChange={ this.lengthChanged }/>
             </div>
-            { this.props.addHole && <button className="f-btn--knob btn--action btn--trail" onClick={ this.addHole }>add</button> }
+            { this.props.addHole && <button className="f-btn--knob btn--action btn--trail" onClick={ this.addHole }>
+                <div className="btn--action__label">add</div>
+            </button> }
         </label>;
     }
 }

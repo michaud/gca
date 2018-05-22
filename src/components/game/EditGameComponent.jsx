@@ -11,7 +11,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Redirect } from 'react-router-dom';
 
 import materialDataPickerStyle from 'components/muistyles';
-import ScreenHeader from 'components/app/ScreenHeader';
+import ModuleHeader from 'components/app/ModuleHeader';
 
 const materialTheme = createMuiTheme(materialDataPickerStyle);
 
@@ -147,7 +147,7 @@ class EditGameComponent extends Component {
             return <Redirect to={ `/game/${ this.props.game.id }` }/>;
         }
         return <React.Fragment>
-            <ScreenHeader label="Game"/>
+            <ModuleHeader label="Game" screenheader={ true }/>
             <fieldset className="f-fieldset">
                 <label className="f-label">
                     <span className="f-label-text">Game title</span>

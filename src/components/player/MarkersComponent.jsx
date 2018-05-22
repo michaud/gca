@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MarkerListContainer from 'components/player/MarkerListContainer';
 import EditMarkerContainer from 'components/player/EditMarkerContainer';
-import ScreenHeader from 'components/app/ScreenHeader';
+import ModuleHeader from 'components/app/ModuleHeader';
 import AddButtonComponent from 'components/app/AddButtonComponent';
 
 class MarkersComponent extends Component {
@@ -40,13 +40,15 @@ class MarkersComponent extends Component {
         const { } = this.props;
 
         return <React.Fragment>
-            <ScreenHeader label="Markers">
-                <AddButtonComponent onClick={ this.addMarkerOpenClicked }/>
-            </ScreenHeader>
-            { this.state.addMarkerOpen &&
-                <EditMarkerContainer/>
-            }
-            <MarkerListContainer/>
+            <ModuleHeader label="Markers">
+                <AddButtonComponent className="f-btn--header-knob" onClick={ this.addMarkerOpenClicked }/>
+            </ModuleHeader>
+            <div className="f-fields-container">
+                { this.state.addMarkerOpen &&
+                    <EditMarkerContainer/>
+                }
+                <MarkerListContainer/>
+            </div>
         </React.Fragment>;
     }
 }

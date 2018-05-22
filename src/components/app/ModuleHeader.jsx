@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ScreenHeader = ({ label, children }) =>
-    <h2 className="header--action">
-        <svg viewBox="0 0 1600 1000" width="160" height="100" style={{
+const ModuleHeader = ({ label, children, screenheader = false }) =>
+    <h2 className={ `header--action${ screenheader ? ' header--screen' : '' }` }>
+        { screenheader && <svg viewBox="0 0 1600 1000" width="160" height="100" style={{
             zIndex: 0,
             width: '100px',
             height: '64px',
@@ -40,10 +40,10 @@ const ScreenHeader = ({ label, children }) =>
                 <path d="m0,0l0,-900l1600,0l0,900l-800,473l0,0z" fillOpacity="0.7" fill="url(#svg_2)" />
                 <path d="m0,0l800,473l0,4000l-800,0l0,0z" fillOpacity="0.4" fill="url(#svg_1)" />
             </g>
-        </svg>
+    </svg> }
 
         <span className="header--action__text">{label}</span>
-        {children}
+        <div style={{ padding: '.25rem'}}>{ children }</div>
     </h2>;
 
-export default ScreenHeader;
+export default ModuleHeader;

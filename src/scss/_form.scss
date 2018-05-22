@@ -43,6 +43,10 @@
     }
 }
 
+.f-fields-container {
+    padding: 1rem .5rem;
+}
+
 .f-fieldset {
 
     border: none;
@@ -169,4 +173,14 @@
     min-width: 4rem;
     white-space: normal;
     border-radius: 3px;
+}
+
+.f-btn--header-knob {
+    flex: 1;
+    min-height: 3.5rem;
+    max-width: 3.5rem;
+    min-width: 3.5rem;
+    white-space: normal;
+    border-radius: 3px;
+    border: 1px solid rgba(200,200,200,.001);
 }

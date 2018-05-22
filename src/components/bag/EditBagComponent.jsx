@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import EditClubContainer from 'components/club/EditClubContainer';
 import EditBagClubListContainer from 'components/bag/EditBagClubListContainer';
-import ScreenHeader from 'components/app/ScreenHeader';
+import ModuleHeader from 'components/app/ModuleHeader';
 import AddButtonComponent from 'components/app/AddButtonComponent';
 
 export default class EditBagComponent extends Component {
@@ -21,12 +21,14 @@ export default class EditBagComponent extends Component {
 
     render () {
         return <React.Fragment>
-            <ScreenHeader label="What's in the bag"/>
-            <EditBagClubListContainer/>
-            <ScreenHeader label="Add club">
-                <AddButtonComponent onClick={ this.addClubClicked }/>
-            </ScreenHeader>
-            { this.state.addClubOpen && <EditClubContainer/> }
+            <ModuleHeader label="What's in the bag" screenheader={ true }/>
+            <div className="f-fields-container">
+                <EditBagClubListContainer/>
+                <ModuleHeader label="Add club">
+                    <AddButtonComponent className="f-btn--header-knob" onClick={ this.addClubClicked }/>
+                </ModuleHeader>
+                { this.state.addClubOpen && <EditClubContainer/> }
+            </div>
         </React.Fragment>;
     }
 }

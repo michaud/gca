@@ -52,7 +52,9 @@ export default class EditCourseComponent extends Component {
             </label>
             { this.state.holes.map((hole, idx) => <HoleEditComponent key={ idx } hole={ hole }/>) }
             { this.state.holes.length < 18 && <HoleEditComponent hole={ this.getNewHole() } addHole={ this.addHole }/> }
-            <button disabled={ !this.state.name || this.state.name.length === 0 } onClick={ this.addCourseButtonClicked } className="btn--action wide">Add</button>
+            <button disabled={ !this.state.name || this.state.name.length === 0 } onClick={ this.addCourseButtonClicked } className="btn--action wide">
+                <div className="btn--action__label">Add</div>
+            </button>
         </fieldset>;
     }
 }

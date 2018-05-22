@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import CourseListContainer from 'components/course/CourseListContainer';
 import EditCourseContainer from 'components/course/EditCourseContainer';
-import ScreenHeader from 'components/app/ScreenHeader';
+import ModuleHeader from 'components/app/ModuleHeader';
 import AddButtonComponent from 'components/app/AddButtonComponent';
 
 class AddCourseComponent extends Component {
@@ -25,9 +25,9 @@ class AddCourseComponent extends Component {
         const { } = this.props;
 
         return <React.Fragment>
-            <ScreenHeader label="Courses">
-                <AddButtonComponent onClick={ this.addCourseClicked }/>
-            </ScreenHeader>
+            <ModuleHeader label="Courses" screenheader={ true }>
+                <AddButtonComponent className="f-btn--header-knob" onClick={ this.addCourseClicked }/>
+            </ModuleHeader>
             { this.state.addCourseOpen && <EditCourseContainer /> }
             <CourseListContainer />
         </React.Fragment>;

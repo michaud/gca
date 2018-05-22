@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ScreenHeader from 'components/app/ScreenHeader';
+import ModuleHeader from 'components/app/ModuleHeader';
 
 class PlayerComponent extends Component {
 
@@ -27,36 +27,39 @@ class PlayerComponent extends Component {
     render () {
 
         return <React.Fragment>
-            <ScreenHeader label="Player"/>
-            <fieldset className="f-fieldset">
-                <label className="f-label">
-                    <span className="f-label-text">first name</span>
-                    <input
-                        className="f-input"
-                        type="text"
-                        onChange={ this.firstNameChanged }
-                        placeholder="first name"
-                        value={ this.state.name } />
-                </label>
-                <label className="f-label">
-                    <span className="f-label-text">last name</span>
-                    <input
-                        className="f-input"
-                        type="text"
-                        onChange={ this.lastNameChanged }
-                        placeholder="last name"
-                        value={ this.state.lastName } />
-                </label>
-                <label className="f-label">
-                    <span className="f-label-text">handicap</span>
-                    <input
-                        className="f-input"
-                        type="text"
-                        onChange={ this.handicapChanged }
-                        placeholder="playing handicap"
-                        value={ this.state.handicap } />
-                </label>
-            </fieldset>
+            <ModuleHeader label="Player" screenheader={ true }/>
+            <div className="f-fields-container">
+                <ModuleHeader label="player info"/>
+                <fieldset className="f-fieldset">
+                    <label className="f-label">
+                        <span className="f-label-text">first name</span>
+                        <input
+                            className="f-input"
+                            type="text"
+                            onChange={ this.firstNameChanged }
+                            placeholder="first name"
+                            value={ this.state.name } />
+                    </label>
+                    <label className="f-label">
+                        <span className="f-label-text">last name</span>
+                        <input
+                            className="f-input"
+                            type="text"
+                            onChange={ this.lastNameChanged }
+                            placeholder="last name"
+                            value={ this.state.lastName } />
+                    </label>
+                    <label className="f-label">
+                        <span className="f-label-text">handicap</span>
+                        <input
+                            className="f-input"
+                            type="text"
+                            onChange={ this.handicapChanged }
+                            placeholder="playing handicap"
+                            value={ this.state.handicap } />
+                    </label>
+                </fieldset>
+            </div>
         </React.Fragment>;
     }
 }

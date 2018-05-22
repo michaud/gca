@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ScreenHeader from 'components/app/ScreenHeader';
+import ModuleHeader from 'components/app/ModuleHeader';
 
 class GameListComponent extends Component {
 
@@ -11,7 +11,7 @@ class GameListComponent extends Component {
 
         const { games } = this.props;
         return <React.Fragment>
-            <ScreenHeader label="Games"/>
+            <ModuleHeader label="Games" screenheader={ true }/>
             {
                 games.map((game, idx)=> <div key={ `gamelistitem${ idx }` }>{game.gameName}</div>)
             }
