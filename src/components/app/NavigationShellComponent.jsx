@@ -4,11 +4,11 @@ import ButtonBarContainer from 'components/app/ButtonBarContainer';
 
 const defaultStyle = { flex: 1, position: 'relative' };
 
-const NavigationShell = (props) => {
+const NavigationShell = ({ children }) => {
 
     return <React.Fragment>
         <div style={ defaultStyle }>
-            { props.children }
+            { children }
         </div>
         <ButtonBarContainer/>
     </React.Fragment>;

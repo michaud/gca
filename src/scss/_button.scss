@@ -39,3 +39,22 @@
 .btn--add {
     font-size: 2rem;
 }
+
+.btn--play {
+
+    display: flex;
+    flex:1;
+    text-align: left;
+    text-decoration: none;
+    padding: 0 1rem;
+    min-height: 4rem;
+    border-radius: 0;
+    align-items: center;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: 1px solid rgb(210, 199, 157);
+    border-bottom: 1px solid rgb(210, 199, 157);
+    background: linear-gradient(171deg, rgb(245, 240, 214) 0%, rgb(220, 210, 173) 100%);
+    width: 100%;
+
+}

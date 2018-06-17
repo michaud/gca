@@ -1,6 +1,7 @@
 import cuid from 'cuid';
 
 import { saveStrokeLocation } from 'actions/geoActions';
+
 import { startGame } from 'actions/gameActions';
 import {
     gameData,
@@ -13,6 +14,7 @@ export const strokeAdded = (club) => (dispatch, getState) => {// eslint-disable-
 };
 
 export const startingGame = ({
+    id,
     gameDateTime,
     gameName,
     markerPlayingHandicap,
@@ -24,7 +26,9 @@ export const startingGame = ({
     const { courses, markers, player, bag } = getState();
 
     let course, marker;
-    let game = { ...gameData };
+    let game = {
+        ...gameData
+    };
 
     if(selectedCourse === -1) {
 
@@ -42,15 +46,16 @@ export const startingGame = ({
 
         marker = {
             ...markers.find((targetMarker) => selectedMarker === targetMarker.id),
-            markerPlayingHandicap: markerPlayingHandicap
+            markerPlayingHandicap
         };
     }
 
+
     game = {
         ...gameData,
-        name: gameName,
+        id,
+        gameName,
         gameDateTime,
-        id: cuid(),
         course,
         marker,
         player: {

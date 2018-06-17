@@ -7,11 +7,7 @@ import HoleNavigatorComponent from 'components/hole/HoleNavigatorComponent';
 
 const mapStateToProps = (state) => {
 
-    const { games } = state;
-
-    return {
-        holes: []
-    };
+    return {};
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({

@@ -25,8 +25,8 @@ export const holeData = {
     length: undefined
 };
 
-const coursesData = [{ ...courseData, name: 'plop1', id: '1' },
-{ ...courseData, name: 'plop2', id: '2' }];
+const coursesData = [{ ...courseData, name: 'course name 1', id: '1' },
+{ ...courseData, name: 'course name 2', id: '2' }];
 
 const bagData = {
     clubs: []
@@ -208,14 +208,27 @@ export const gameData = {
     course: undefined
 };
 
-const gamesData = [{
-    ...gameData,
-    gameName: 'game 1'
-},
-{
-    ...gameData,
-    gameName: 'game 2'
-}];
+const gamesData = [
+    { 
+        'id': 'cji8x4oag00033c5vr0taeocx',
+        'gameName': 'game name 1',
+        'gameDateTime': '2018-06-10T04:22',
+        'bag': { 'clubs': [] },
+        'player': { 'firstName': '', 'lastName': '', 'playingHandicap': 0, 'handicap': 23, 'playerPlayingHandicap': 0 },
+        'course': {
+            'id': 'cji8x4q0300043c5vt0kqpxqn',
+            'name': '',
+            'holes': [...gameHolesData]
+        }
+    },
+    {
+        ...gameData,
+        gameName: 'game name 2'
+    },
+    {
+        ...gameData,
+        gameName: 'game name 3'
+    }];
 
 const clubsData = [/*{
     name: 'puttter',
@@ -309,7 +322,7 @@ const appData = {
 };
 /* eslint-enable no-unused-vars */
 
-const markersData = [];//{ ...playerData, firstName: 'plop' }
+const markersData = [];//{ ...playerData, firstName: 'marker first name 1' }
 
 export const INITIAL_APP_STATE = appData;
 export const INITIAL_CLUBS_STATE = clubsData;

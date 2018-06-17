@@ -1,7 +1,7 @@
 import {
     INIT_APP,
     SAVE_STROKE_LOCATION_DATA
-} from './../actions/actionTypes';
+} from 'actions/actionTypes';
 
 import { INITIAL_GAME_HOLES_STATE } from './initialStates';
 
@@ -17,8 +17,11 @@ export default function (state = INITIAL_GAME_HOLES_STATE, action) {
         case SAVE_STROKE_LOCATION_DATA: {
 
             const newState = state.map((item, index) => {
+
                 if (index !== 0) {
+
                     return item;
+
                 } else {
                     let newArray = item.strokes.slice();
                     const newStroke = {
@@ -29,7 +32,7 @@ export default function (state = INITIAL_GAME_HOLES_STATE, action) {
                         latitude: action.geoData.latitude,
                         longitude: action.geoData.longitude,
                         speed: action.geoData.speed,
-                        name: 'plop'
+                        name: `stroke ${ index }`
                     };
 
                     return {

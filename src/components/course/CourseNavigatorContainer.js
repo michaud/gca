@@ -6,12 +6,7 @@ import { } from 'actions/gameActions';
 import CourseNavigatorComponent from 'components/course/CourseNavigatorComponent';
 
 const mapStateToProps = (state) => {
-
-    const { courses } = state;
-
-    return {
-        courses
-    };
+    return {};
 };
 
 export default connect(mapStateToProps, (dispatch) => bindActionCreators({

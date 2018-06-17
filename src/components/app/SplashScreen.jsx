@@ -10,7 +10,7 @@ class SplashScreen extends Component {
         const { } = this.props;
 
         return <NavLink className="splash" to={{ pathname: 'settings', state: slide }}>
-                <svg viewBox="0 0 1600 1000" width="1600" height="1000" style={{ zIndex: 0, width: '100vw', height: '100vh', minWidth: '30rem', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+                <svg className="splash-graph" viewBox="0 0 1600 1000" width="1600" height="1000">
                     <defs>
                         <filter id="shadow">
                             <feDropShadow dx="0" dy="5" floodColor="#1e3e00" floodOpacity=".7" stdDeviation="12"/>
@@ -52,7 +52,6 @@ class SplashScreen extends Component {
                         </g>
                     </g>
                 </svg>
-                <div className="splash__title">Golf Course Assistant</div>
             </NavLink>
 ;
     }

@@ -28,7 +28,7 @@ class ButtonBar extends Component {
     render () {
 
         return <div style={{ display: 'flex' }}>
-            <NavLink className="btn--action f-btn--knob" to={{ pathname: '/settings/newgame', state: slide }}>
+            <NavLink className="btn--action f-btn--knob" to={{ pathname: '/settings/game/new', state: slide }}>
                 <div className="btn--action__label">+</div>
             </NavLink>
             <NavLink className="btn--action wide" to={{ pathname: '/settings/games', state: slide }}>

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import { } from 'actions/gameActions';
 
@@ -14,5 +15,5 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, (dispatch) => bindActionCreators({
-}, dispatch))(GameListComponent);
+export default withRouter(connect(mapStateToProps, (dispatch) => bindActionCreators({
+}, dispatch))(GameListComponent));

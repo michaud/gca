@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+
 import moment from 'moment';
-import EditCourseContainer from 'components/course/EditCourseContainer';
-import EditMarkerContainer from 'components/player/EditMarkerContainer';
+
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MomentUtils from 'material-ui-pickers/utils/moment-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import DateTimePicker from 'material-ui-pickers/DateTimePicker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { Redirect } from 'react-router-dom';
+
+import EditCourseContainer from 'components/course/EditCourseContainer';
+import EditMarkerContainer from 'components/player/EditMarkerContainer';
 
 import materialDataPickerStyle from 'components/muistyles';
-import ModuleHeader from 'components/app/ModuleHeader';
 
 const materialTheme = createMuiTheme(materialDataPickerStyle);
 
@@ -27,8 +28,7 @@ class EditGameComponent extends Component {
         markerPlayingHandicap: '',
         gameDateTime: this.dateTime(),
         addCourseOpen: false,
-        addMarkerOpen: false,
-        startGame: false
+        addMarkerOpen: false
     }
 
     gameDateTimeChanged = (dataTime) => {
@@ -41,12 +41,33 @@ class EditGameComponent extends Component {
 
     gameNameChanged = (e) => {
 
-        const gameName = e.target.value;
+        const newGameName = e.target.value;
 
         this.setState((state) => ({
             ...state,
-            gameName
-        }));
+            gameName: newGameName
+        }), () => {
+            if(this.state.gameName && this.state.gameName.length > 0) {
+
+                const {
+                    gameName,
+                    selectedCourse,
+                    selectedMarker,
+                    playerPlayingHandicap,
+                    markerPlayingHandicap,
+                    gameDateTime
+                } = this.state;
+
+                this.props.canSubmit(true, {
+                    gameName,
+                    selectedCourse,
+                    selectedMarker,
+                    playerPlayingHandicap,
+                    markerPlayingHandicap,
+                    gameDateTime
+                 });
+            }
+        });
     }
 
     selectedCourseChanged = (e) => {
@@ -105,21 +126,11 @@ class EditGameComponent extends Component {
         }));
     }
 
-    startGameClicked = () => {
-
-        this.props.startingGame(this.state);
-        this.setState((state) => ({
-            ...state,
-            startGame: true
-        }));
-    }
-
     componentDidMount () {
 
         this.setState((state) => ({
             ...state,
-            ...this.props.game,
-            playerPlayingHandicap: this.props.player.handicap
+            ...this.props.game
         }));
     }
 
@@ -143,14 +154,10 @@ class EditGameComponent extends Component {
             markers
         } = this.props;
 
-        if(this.state.startGame) {
-            return <Redirect to={ `/game/${ this.props.game.id }` }/>;
-        }
         return <React.Fragment>
-            <ModuleHeader label="Game" screenheader={ true }/>
             <fieldset className="f-fieldset">
                 <label className="f-label">
-                    <span className="f-label-text">Game title</span>
+                    <span className="f-label-text">Game name</span>
                     <input
                         className="f-input"
                         type="text"
@@ -212,8 +219,8 @@ class EditGameComponent extends Component {
                 }
                 <label className="f-label">
                     <span className="f-label-text">Game date &amp; time</span>
-                    <MuiPickersUtilsProvider utils={ MomentUtils }>
-                        <MuiThemeProvider theme={ materialTheme }>
+                    <MuiThemeProvider theme={ materialTheme }>
+                        <MuiPickersUtilsProvider utils={ MomentUtils }>
                             <DateTimePicker
                                 className="mui__f-box-input-container"
                                 ampm={ false }
@@ -222,15 +229,9 @@ class EditGameComponent extends Component {
                                 showTabs={ false }
                                 value={ this.state.gameDateTime }
                                 onChange={ this.gameDateTimeChanged } />
-                        </MuiThemeProvider>
-                    </MuiPickersUtilsProvider>
+                        </MuiPickersUtilsProvider>
+                    </MuiThemeProvider>
                 </label>
-                <button
-                    className="btn--action wide"
-                    onClick={ this.startGameClicked }
-                    disabled={ this.state.gameName.length === 0 }>
-                    <div className="btn--action__label">Start game</div>
-                </button>
             </fieldset>
         </React.Fragment>;
     }
