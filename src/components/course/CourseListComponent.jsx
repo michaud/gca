@@ -7,7 +7,7 @@ const CourseListComponent = ({ courses }) => {
             <li className="list__item" key={idx}>
                 <div className="course-item">
                     <div className="course-item__label">{ course.name }</div>
-                    <button className="f-btn--knob btn--trail btn--action">new game</button>
+                    <button className="f-btn f-btn--line btn--trail btn--action">new game</button>
                 </div>
             </li>)
         }

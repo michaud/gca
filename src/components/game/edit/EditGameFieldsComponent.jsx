@@ -2,21 +2,10 @@ import React, { Component } from 'react';
 
 import moment from 'moment';
 
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import MomentUtils from 'material-ui-pickers/utils/moment-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import DateTimePicker from 'material-ui-pickers/DateTimePicker';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
 import EditCourseContainer from 'components/course/EditCourseContainer';
 import EditMarkerContainer from 'components/player/EditMarkerContainer';
 
-import materialDataPickerStyle from 'components/muistyles';
-
-const materialTheme = createMuiTheme(materialDataPickerStyle);
-
-class EditGameComponent extends Component {
+class EditGameFieldsComponent extends Component {
 
     dateTime = (strDateTime) => moment(strDateTime).format('YYYY-MM-DDThh:mm')
 
@@ -157,7 +146,7 @@ class EditGameComponent extends Component {
         return <React.Fragment>
             <fieldset className="f-fieldset">
                 <label className="f-label">
-                    <span className="f-label-text">Game name</span>
+                    <span className="f-label--text f-label--long">Game name</span>
                     <input
                         className="f-input"
                         type="text"
@@ -166,7 +155,7 @@ class EditGameComponent extends Component {
                         value={ this.state.gameName } />
                 </label>
                 <label className="f-label">
-                    <span className="f-label-text">Course</span>
+                    <span className="f-label--text f-label--long">Course</span>
                     <select
                         className="f-input-field f-select--new"
                         value={this.state.selectedCourse}
@@ -177,13 +166,11 @@ class EditGameComponent extends Component {
                         })
                         }
                     </select>
-                    <button className="f-btn--knob btn--action btn--trail" onClick={this.addCourseClicked}><div className="btn--action__label">new</div></button>
+                    <button className="f-btn btn--action btn--trail" onClick={this.addCourseClicked}><div className="btn--action__label">new</div></button>
                 </label>
-            </fieldset>
             {this.state.addCourseOpen && <EditCourseContainer />}
-            <fieldset className="f-fieldset">
                 <label className="f-label">
-                    <span className="f-label-text">Playing handicap</span>
+                    <span className="f-label--text f-label--long">Playing handicap</span>
                     <input
                         className="f-input"
                         type="text"
@@ -192,23 +179,23 @@ class EditGameComponent extends Component {
                         value={this.state.playerPlayingHandicap} />
                 </label>
                 <label className="f-label">
-                    <span className="f-label-text">Marker</span>
+                    <span className="f-label--text f-label--long">Marker</span>
                     <select className="f-input-field f-select--new" value={this.state.selectedMarker} onChange={this.selectedMarkerChanged}>
                         <option key={-1} value={-1}>No marker</option>
-                        {markers.map((marker, idx) => {
-                            return <option key={idx} value={marker.id}>{marker.firstName}</option>;
-                        })}
+                        {
+                            markers.map((marker, idx) => {
+                                return <option key={idx} value={marker.id}>{marker.firstName}</option>;
+                            })
+                        }
                     </select>
-                    <button className="f-btn--knob btn--trail btn--action" onClick={this.addMarkerClicked}>
+                    <button className="f-btn btn--trail btn--action" onClick={this.addMarkerClicked}>
                         <div className="btn--action__label">new</div>
                     </button>
                 </label>
-            </fieldset>
             {this.state.addMarkerOpen && <EditMarkerContainer />}
-            <fieldset className="f-fieldset">
                 {this.state.selectedMarker !== -1 &&
                     <label className="f-label">
-                        <span className="f-label-text">Playing handicap</span>
+                        <span className="f-label--text f-label--long">Playing handicap</span>
                         <input
                             className="f-input-field f-input"
                             type="text"
@@ -218,23 +205,12 @@ class EditGameComponent extends Component {
                     </label>
                 }
                 <label className="f-label">
-                    <span className="f-label-text">Game date &amp; time</span>
-                    <MuiThemeProvider theme={ materialTheme }>
-                        <MuiPickersUtilsProvider utils={ MomentUtils }>
-                            <DateTimePicker
-                                className="mui__f-box-input-container"
-                                ampm={ false }
-                                leftArrowIcon={ <ChevronLeftIcon/> }
-                                rightArrowIcon={ <ChevronRightIcon/> }
-                                showTabs={ false }
-                                value={ this.state.gameDateTime }
-                                onChange={ this.gameDateTimeChanged } />
-                        </MuiPickersUtilsProvider>
-                    </MuiThemeProvider>
+                    <span className="f-label--text f-label--long">Game date &amp; time</span>
+                    field
                 </label>
             </fieldset>
         </React.Fragment>;
     }
 }
 
-export default EditGameComponent;
+export default EditGameFieldsComponent;

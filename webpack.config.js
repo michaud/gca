@@ -1,12 +1,12 @@
 var path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack')
 var HtmlWebPackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
 
-    entry: ['babel-polyfill', 'react-hot-loader/patch',
+    entry: [
         './src/index'
     ],
     output: {
@@ -21,27 +21,24 @@ module.exports = {
             title: 'NL-ix',
             filename: './index.html'
         }),
-        new CleanWebpackPlugin(['build']),
+        new CleanWebpackPlugin(),
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/)
     ],
     module: {
-        rules: [{
-            test: /\.js(x?)$/,
-            use: ['babel-loader'],
-            include: path.join(__dirname, 'src')
-        },
-        {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-        },
-        {
-            test: /\.json$/,
-            use: 'file-loader'
-        },
-        {
-            test: /\.scss$/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
-        }
+        rules: [
+            {
+                test: /\.js(x?)$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            }
         ]
     },
     devServer: {
@@ -61,7 +58,8 @@ module.exports = {
             'components': path.resolve(__dirname, 'src/components/'),
             'actions': path.resolve(__dirname, 'src/actions/'),
             'reducers': path.resolve(__dirname, 'src/reducers/'),
-            'selectors': path.resolve(__dirname, 'src/selectors/')
+            'selectors': path.resolve(__dirname, 'src/selectors/'),
+            'react-dom': '@hot-loader/react-dom'
         }
     }
 };

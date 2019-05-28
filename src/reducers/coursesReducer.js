@@ -1,7 +1,7 @@
 import cuid from 'cuid';
 
 import {
-    INIT_APP,
+    APP_INIT,
     ADD_COURSE
 } from 'actions/actionTypes';
 
@@ -11,7 +11,7 @@ export default function (state = INITIAL_COURSES_STATE, action) {
 
     switch (action.type) {
 
-        case INIT_APP: {
+        case APP_INIT: {
 
             return state;
         }

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppContainer from './components/app/AppContainer';
 import { Provider } from 'react-redux';
-import { AppContainer as HotLoaderContainer } from 'react-hot-loader';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './scss/_style.scss';
@@ -16,24 +15,19 @@ const store = configureStore();
 const app = document.getElementById('app-container');
 
 const render = () => {
-    ReactDOM.render(<HotLoaderContainer>
-        <Provider store={store}>
+    ReactDOM.render(
+        <Provider store={ store }>
             <Router>
                 <React.Fragment>
                     <Switch>
-                        <Route exact path="/" component={ SplashScreen } />
+                        <Route exact path="/" component={ AppContainer } />
                         <Route path="/settings" component={ AppContainer } />
                         <Route path="/game/:gameid" component={ GameNavigatorContainer } />
                     </Switch>
                 </React.Fragment>
             </Router>
-        </Provider>
-    </HotLoaderContainer>,
+        </Provider>,
     app);
 };
 
 render();
-
-if (module.hot) {
-    module.hot.accept('./components/app/AppContainer', () => render(AppContainer));
-}

@@ -29,7 +29,7 @@ class EditClubComponent extends Component {
 
         return <fieldset className="f-fieldset">
             <label className="f-label">
-                <span className="f-label-text">club name</span>
+                <span className="f-label--text">club name</span>
                 <input
                     className="f-input"
                     type="text"
@@ -38,7 +38,7 @@ class EditClubComponent extends Component {
                     value={ this.state.name } />
             </label>
             <label className="f-label">
-                <span className="f-label-text">club type</span>
+                <span className="f-label--text">club type</span>
                 <select className="f-select--new" value={ this.state.clubType } onChange={ this.clubTypeChanged }>
                     <option value="putter">Putter</option>
                     <option value="lobwedge">Lob wedge</option>

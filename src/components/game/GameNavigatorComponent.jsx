@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import CourseNavigatorContainer from 'components/course/CourseNavigatorContainer';
 
 class GameNavigatorComponent extends Component {
@@ -6,7 +7,6 @@ class GameNavigatorComponent extends Component {
     render () {
 
         const { game } = this.props;
-
         return <div>
             { game.gameName }
             <CourseNavigatorContainer course={ game.course } />

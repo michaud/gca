@@ -25,9 +25,14 @@ class AddCourseComponent extends Component {
         const { } = this.props;
 
         return <React.Fragment>
-            <ModuleHeader label="Courses" screenheader={ true }>
-                <AddButtonComponent className="f-btn--header-knob" onClick={ this.addCourseClicked }/>
-            </ModuleHeader>
+            <ModuleHeader label="Courses" screenheader={ true }>{/* <AddButtonComponent className="f-btn--header-knob" onClick={ this.addCourseClicked }/> */}</ModuleHeader>
+            <fieldset className="f-fieldset">
+                <button
+                    onClick={ this.addCourseClicked }
+                    className="btn--action wide">
+                    <div className="btn--action__label">Add Course</div>
+                </button>
+            </fieldset>
             { this.state.addCourseOpen && <EditCourseContainer /> }
             <CourseListContainer />
         </React.Fragment>;

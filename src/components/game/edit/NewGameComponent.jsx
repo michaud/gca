@@ -29,7 +29,7 @@ export default class NewGameComponent extends Component {
     }
 
     startGameClicked = (history) => {
-                
+
         this.props.startingGame(this.state.gameData);
         //history.push(`/game/${ this.state.gameData.id }`);
         history.push(`/game/${ 'cji8x4oag00033c5vr0taeocx' }`);

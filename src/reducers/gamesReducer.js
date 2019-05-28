@@ -1,5 +1,5 @@
 import {
-    INIT_APP, START_GAME
+    APP_INIT, START_GAME
 } from './../actions/actionTypes';
 
 import { INITIAL_GAMES_STATE } from './initialStates';
@@ -8,7 +8,7 @@ export default function (state = INITIAL_GAMES_STATE, action) {
 
     switch (action.type) {
 
-        case INIT_APP: {
+        case APP_INIT: {
 
             return state;
         }

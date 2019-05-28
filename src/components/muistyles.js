@@ -46,14 +46,16 @@ const materialDataPickerStyle = {
                 color: 'black',
                 fontSize: '1rem'
             },
-            selected: {
-                backgroundColor: 'rgb(67,141,0)',
-                fontSize: '1.2rem',
-                fontFamily: '"Assistant", sans-serif !important',
-                textTransform: 'lowercase',
-                fontWeight: 'bold',
-                color: 'white'
-            },
+            'root': {
+                '&$selected': {
+                  'backgroundColor': 'rgb(67,141,0)',
+                  'fontSize': '1.2rem',
+                  'fontFamily': '"Assistant", sans-serif !important',
+                  'textTransform': 'lowercase',
+                  'fontWeight': 'bold',
+                  'color': 'white'
+                }
+              },
             current: {
                 color: 'white'
             }

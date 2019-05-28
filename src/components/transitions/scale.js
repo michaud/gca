@@ -1,4 +1,5 @@
-import { injectGlobal, keyframes } from 'styled-components';
+import { keyframes } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const transitionClassName = 'scale';
 const duration = 300;
@@ -7,7 +8,7 @@ const moveFromRight = keyframes`from { transform: translateX(10%); }`;
 const scaleDown = keyframes`to { opacity: 0; transform: scale(.8); }`;
 
 // eslint-disable-next-line
-injectGlobal`.${transitionClassName}-enter, .${transitionClassName}-exit {
+const GlobalStyle = createGlobalStyle`.${transitionClassName}-enter, .${transitionClassName}-exit {
 position: absolute;
 top: 0;
 width: 100%;
@@ -21,4 +22,4 @@ width: 100%;
   z-index: 1;
 }`;
 
-export default { transition: transitionClassName, duration };
+export default { transition: transitionClassName, duration, GlobalStyle };

@@ -43,7 +43,7 @@ const ModuleHeader = ({ label, children, screenheader = false }) =>
     </svg> }
 
         <span className="header--action__text">{label}</span>
-        <div style={{ padding: '.25rem'}}>{ children }</div>
+    { children && <div>{ children }</div> }
     </h2>;
 
 export default ModuleHeader;

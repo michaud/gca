@@ -1,4 +1,4 @@
-import * as type from './../actions/actionTypes';
+import * as type from 'actions/actionTypes';
 
 import { INITIAL_BAG_STATE } from './initialStates';
 
@@ -6,7 +6,7 @@ export default function (state = INITIAL_BAG_STATE, action) {
 
     switch (action.type) {
 
-        case type.INIT_APP: {
+        case type.APP_INIT: {
 
             return state;
         }

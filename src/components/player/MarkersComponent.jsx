@@ -40,9 +40,7 @@ class MarkersComponent extends Component {
         const { } = this.props;
 
         return <React.Fragment>
-            <ModuleHeader label="Markers">
-                <AddButtonComponent className="f-btn--header-knob" onClick={ this.addMarkerOpenClicked }/>
-            </ModuleHeader>
+        <ModuleHeader label="Markers"></ModuleHeader>
             <div className="f-fields-container">
                 { this.state.addMarkerOpen &&
                     <EditMarkerContainer/>

@@ -42,7 +42,7 @@ export default class EditCourseComponent extends Component {
 
         return <fieldset className="f-fieldset">
             <label className="f-label">
-                <span className="f-label-text">course name</span>
+                <span className="f-label--text">course name</span>
                 <input
                     className="f-input"
                     type="text"

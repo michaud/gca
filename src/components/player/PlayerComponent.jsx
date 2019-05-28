@@ -5,23 +5,39 @@ import ModuleHeader from 'components/app/ModuleHeader';
 class PlayerComponent extends Component {
 
     state = {
-        firstName: undefined,
-        lastName: undefined,
+        firstName: '',
+        lastName: '',
         handicap: 0
     }
 
     firstNameChanged = (e) => {
 
-        this.setState({ firstName: e.target.value });
+        const value = e.target.value;
+
+        this.setState((state) => ({
+            ...state,
+            firstName: value
+        }));
     }
 
     lastNameChanged = (e) => {
 
-        this.setState({ lastName: e.target.value });
+        const value = e.target.value;
+
+        this.setState((state) => ({
+            ...state,
+            lastName: value
+        }));
     }
 
     handicapChanged = (e) => {
-        this.setState({ handicap: e.target.value });
+
+        const value = e.target.value;
+
+        this.setState((state) => ({
+            ...state,
+            handicap: value
+        }));
     }
 
     render () {
@@ -32,7 +48,7 @@ class PlayerComponent extends Component {
                 <ModuleHeader label="player info"/>
                 <fieldset className="f-fieldset">
                     <label className="f-label">
-                        <span className="f-label-text">first name</span>
+                        <span className="f-label--text">first name</span>
                         <input
                             className="f-input"
                             type="text"
@@ -41,7 +57,7 @@ class PlayerComponent extends Component {
                             value={ this.state.name } />
                     </label>
                     <label className="f-label">
-                        <span className="f-label-text">last name</span>
+                        <span className="f-label--text">last name</span>
                         <input
                             className="f-input"
                             type="text"
@@ -50,10 +66,10 @@ class PlayerComponent extends Component {
                             value={ this.state.lastName } />
                     </label>
                     <label className="f-label">
-                        <span className="f-label-text">handicap</span>
+                        <span className="f-label--text">handicap</span>
                         <input
                             className="f-input"
-                            type="text"
+                            type="number"
                             onChange={ this.handicapChanged }
                             placeholder="playing handicap"
                             value={ this.state.handicap } />

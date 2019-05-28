@@ -12,16 +12,32 @@ class EditMarkerComponent extends Component {
 
     firstNameChanged = (e) => {
 
-        this.setState({ firstName: e.target.value });
+        const value = e.target.value;
+
+        this.setState((state) => ({
+            ...state,
+            firstName: value
+        }));
     }
 
     lastNameChanged = (e) => {
 
-        this.setState({ lastName: e.target.value });
+        const value = e.target.value;
+
+        this.setState((state) => ({
+            ...state,
+            lastName: value
+        }));
     }
 
     handicapChanged = (e) => {
-        this.setState({ handicap: e.target.value });
+
+        const value = e.target.value;
+
+        this.setState((state) => ({
+            ...state,
+            handicap: value
+        }));
     }
 
     addMarkerButtonClicked = () => {
@@ -33,7 +49,7 @@ class EditMarkerComponent extends Component {
     render () {
         return <fieldset className="f-fieldset">
             <label className="f-label">
-                <span className="f-label-text">first name</span>
+                <span className="f-label--text">first name</span>
                 <input
                     className="f-input"
                     type="text"
@@ -42,7 +58,7 @@ class EditMarkerComponent extends Component {
                     value={ this.state.firstName } />
             </label>
             <label className="f-label">
-                <span className="f-label-text">last name</span>
+                <span className="f-label--text">last name</span>
                 <input
                     className="f-input"
                     type="text"
@@ -51,7 +67,7 @@ class EditMarkerComponent extends Component {
                     value={ this.state.lastName } />
             </label>
             <label className="f-label">
-                <span className="f-label-text">handicap</span>
+                <span className="f-label--text">handicap</span>
                 <input
                     className="f-input"
                     type="text"

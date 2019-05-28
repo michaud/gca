@@ -6,28 +6,13 @@
 
 .item-list {
 
-    padding: 1rem 0;
-
-    .list__item {
-
-        padding: 0 1rem 1rem 1rem;
-    }
-
-    :first-child {
-
-        padding-top: 0;
-    }
-
-    :last-child {
-
-        padding-bottom: 0;
-    }
+    padding: 0 1rem 1rem 1rem;
 }
 
 .list__item {
 
     display: flex;
-    min-height: 4rem;
+    min-height: 3rem;
     vertical-align: middle;
     width: 100%;
 }

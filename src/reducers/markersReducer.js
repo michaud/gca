@@ -1,7 +1,7 @@
 import cuid from 'cuid';
 
 import {
-    INIT_APP, ADD_MARKER
+    APP_INIT, ADD_MARKER
 } from './../actions/actionTypes';
 
 import { INITIAL_MARKERS_STATE } from './initialStates';
@@ -10,7 +10,7 @@ export default function (state = INITIAL_MARKERS_STATE, action) {
 
     switch (action.type) {
 
-        case INIT_APP: {
+        case APP_INIT: {
 
             return state;
         }

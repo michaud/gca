@@ -9,7 +9,7 @@ export default function configureStore (initialState) {
 
     const finalCreateStore = compose(
         applyMiddleware(promise, thunk, requestFactory),
-        window.devToolsExtension ? window.devToolsExtension() : f => f
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )(createStore);
 
     const store = finalCreateStore(rootReducer, initialState);

@@ -12,6 +12,14 @@ class GameListComponent extends Component {
         const { games } = this.props;
         return <React.Fragment>
             <ModuleHeader label="Games" screenheader={ true }/>
+            <fieldset className="f-fieldset">
+                <button
+                    onClick={ this.addCourseClicked }
+                    className="btn--action wide">
+                    <div className="btn--action__label">New game</div>
+                </button>
+            </fieldset>
+
             <ol className="plain-list item-list">
             {
                 games.map((game, idx) => {

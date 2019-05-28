@@ -1,5 +1,4 @@
-import { injectGlobal, keyframes } from 'styled-components';
-
+import { keyframes, createGlobalStyle } from 'styled-components';
 const transitionClassName = 'slide';
 const duration = 450;
 
@@ -16,7 +15,7 @@ const slideIn = keyframes`
 100% { opacity: 1; transform: translateZ(0) translateX(0); }
 `;
 // eslint-disable-next-line
-injectGlobal`.${transitionClassName}-enter, .${transitionClassName}-exit {
+const GlobalStyle = createGlobalStyle`.${transitionClassName}-enter, .${transitionClassName}-exit {
   position: absolute;
   top: 0;
   width: 100%;

@@ -1,5 +1,5 @@
 import {
-    INIT_APP,
+    APP_INIT,
     SAVE_STROKE_LOCATION_DATA
 } from 'actions/actionTypes';
 
@@ -9,7 +9,7 @@ export default function (state = INITIAL_GAME_HOLES_STATE, action) {
 
     switch (action.type) {
 
-        case INIT_APP: {
+        case APP_INIT: {
 
             return state;
         }
