@@ -79,7 +79,7 @@
         "actions": "^1.3.0",
         "babel-polyfill": "^6.23.0",
         "components": "^0.1.0",
-        "minimist": "^1.2.0",
+        "minimist": "^1.2.6",
         "reducers": "^2.0.0"
     }
 }
